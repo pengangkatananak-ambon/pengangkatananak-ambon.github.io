@@ -32,6 +32,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 90px;
+  width: 100%;
 }
 
 body {
@@ -39,6 +40,8 @@ body {
   background: #fff;
   color: var(--text);
   line-height: 1.7;
+  width: 100%;
+  min-width: 0;
   overflow-x: hidden;
 }
 
@@ -56,9 +59,13 @@ button {
   font: inherit;
 }
 
+/* LEBAR UTAMA WEBSITE */
 .container {
-  width: min(1360px, 96%);
+  width: 100%;
+  max-width: 1440px;
   margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 /* HEADER */
@@ -66,6 +73,7 @@ button {
   position: sticky;
   top: 0;
   z-index: 1000;
+  width: 100%;
   background: rgba(255,255,255,.97);
   border-bottom: 1px solid var(--border);
   box-shadow: 0 3px 14px rgba(9,38,77,.06);
@@ -203,9 +211,14 @@ button {
 /* BANNER */
 .hero {
   position: relative;
+  width: 100%;
   padding: 12px 0 0;
   background:
-    radial-gradient(ellipse at 8% 0%, rgba(228,239,249,.95), transparent 48%),
+    radial-gradient(
+      ellipse at 8% 0%,
+      rgba(228,239,249,.95),
+      transparent 48%
+    ),
     #fff;
   overflow: hidden;
 }
@@ -242,6 +255,8 @@ button {
 
 .hero-banner {
   width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
   overflow: hidden;
   border-radius: 15px;
   background: var(--blue-light);
@@ -252,6 +267,7 @@ button {
 .hero-banner img {
   display: block;
   width: 100%;
+  max-width: 100%;
   height: auto;
   object-fit: contain;
 }
@@ -262,16 +278,21 @@ button {
   align-items: center;
   flex-wrap: wrap;
   gap: 12px;
-  padding: 14px 12px 0;
+  padding: 18px 0 0;
 }
 
 /* HIASAN GELOMBANG */
 .menu-section {
   position: relative;
-  padding: 34px 0 62px;
+  width: 100%;
+  padding: 38px 0 62px;
   overflow: hidden;
   background:
-    radial-gradient(ellipse at 100% 20%, rgba(228,239,249,.9), transparent 40%),
+    radial-gradient(
+      ellipse at 100% 20%,
+      rgba(228,239,249,.9),
+      transparent 40%
+    ),
     linear-gradient(180deg,#fff,#f7fbff);
 }
 
@@ -308,6 +329,7 @@ button {
 /* BAGIAN KONTEN */
 .section {
   position: relative;
+  width: 100%;
   padding: 68px 0;
   isolation: isolate;
 }
@@ -327,7 +349,11 @@ button {
 
 .section-light {
   background:
-    radial-gradient(ellipse at 0% 0%, rgba(228,239,249,.9), transparent 42%),
+    radial-gradient(
+      ellipse at 0% 0%,
+      rgba(228,239,249,.9),
+      transparent 42%
+    ),
     var(--blue-light);
 }
 
@@ -338,7 +364,12 @@ button {
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg,transparent,var(--gold),transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--gold),
+    transparent
+  );
   opacity: .75;
   z-index: -1;
 }
@@ -464,6 +495,7 @@ button {
 }
 
 .info-card {
+  min-width: 0;
   padding: 24px;
   background: #fff;
   border: 1px solid var(--border);
@@ -547,6 +579,7 @@ button {
 
 /* KONTEN DAN PERSYARATAN */
 .content-box {
+  width: 100%;
   max-width: 1000px;
   margin: 0 auto;
   padding: 28px;
@@ -657,6 +690,7 @@ button {
 }
 
 .procedure-card {
+  min-width: 0;
   position: relative;
   padding: 25px;
   background: #fff;
@@ -766,6 +800,7 @@ button {
 }
 
 .media-card {
+  min-width: 0;
   overflow: hidden;
   background: #fff;
   border: 1px solid var(--border);
@@ -783,7 +818,11 @@ button {
   justify-content: center;
   padding: 18px;
   background:
-    radial-gradient(ellipse at 50% 100%,rgba(231,183,53,.12),transparent 65%),
+    radial-gradient(
+      ellipse at 50% 100%,
+      rgba(231,183,53,.12),
+      transparent 65%
+    ),
     var(--blue-light);
   border-bottom: 1px solid var(--border);
 }
@@ -832,9 +871,14 @@ button {
 /* INFORMASI PELAYANAN */
 .contact-section {
   position: relative;
+  width: 100%;
   padding: 68px 0;
   background:
-    radial-gradient(ellipse at 0% 0%,rgba(42,83,139,.35),transparent 48%),
+    radial-gradient(
+      ellipse at 0% 0%,
+      rgba(42,83,139,.35),
+      transparent 48%
+    ),
     var(--navy-dark);
   color: #fff;
   overflow: hidden;
@@ -886,6 +930,7 @@ button {
 }
 
 .contact-card {
+  min-width: 0;
   display: flex;
   align-items: flex-start;
   gap: 16px;
@@ -956,6 +1001,7 @@ button {
 }
 
 .site-footer {
+  width: 100%;
   padding: 22px 0;
   background: #061a35;
   color: #d9e5f4;
@@ -967,14 +1013,16 @@ button {
   color: var(--gold);
 }
 
-/* RESPONSIF */
-@media(max-width:760px) {
+/* RESPONSIF HP */
+@media (max-width: 760px) {
   html {
     scroll-padding-top: 82px;
   }
 
   .container {
-    width: 93%;
+    width: 100%;
+    padding-left: 14px;
+    padding-right: 14px;
   }
 
   .header-inner {
@@ -1008,6 +1056,7 @@ button {
 
   .hero-actions {
     padding: 14px 0 0;
+    gap: 10px;
   }
 
   .hero-actions .button {
@@ -1122,9 +1171,24 @@ button {
   }
 }
 
-@media(min-width:761px) and (max-width:1000px) {
+/* RESPONSIF TABLET */
+@media (min-width: 761px) and (max-width: 1100px) {
   .container {
-    width: 95%;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .hero {
+    padding-top: 12px;
+  }
+
+  .hero-banner {
+    border-radius: 14px;
+  }
+
+  .hero-actions {
+    padding-top: 16px;
   }
 
   .menu-grid {
@@ -1137,7 +1201,18 @@ button {
   }
 }
 
-@media(prefers-reduced-motion:reduce) {
+/* RESPONSIF TABLET BESAR DAN DESKTOP */
+@media (min-width: 1101px) {
+  .container {
+    width: 100%;
+    max-width: 1440px;
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+}
+
+/* AKSESIBILITAS */
+@media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
@@ -1191,9 +1266,11 @@ button {
 <!-- BERANDA -->
 <section class="hero" id="beranda">
   <div class="container">
+
     <div class="hero-banner">
-      <img src="header-pengangkatan-anak.png"
-        alt="Panduan lengkap persyaratan dan prosedur pengangkatan anak bagi Calon Orang Tua Angkat"
+      <img
+        src="header-pengangkatan-anak.png"
+        alt="Pelayanan informasi pengangkatan anak bagi Calon Orang Tua Angkat"
         fetchpriority="high">
     </div>
 
@@ -1201,10 +1278,12 @@ button {
       <a class="button button-primary" href="#menu-informasi">
         Jelajahi Informasi <span aria-hidden="true">→</span>
       </a>
+
       <a class="button button-secondary" href="#media-digital">
         Lihat Panduan Digital
       </a>
     </div>
+
   </div>
 </section>
 
@@ -1462,7 +1541,7 @@ button {
   </div>
 </section>
 
-<!-- MEDIA DIGITAL: TEPAT TIGA KARTU -->
+<!-- MEDIA DIGITAL -->
 <section class="section section-light" id="media-digital">
   <div class="container">
 
@@ -1641,7 +1720,9 @@ const mainNav = document.getElementById("mainNav");
 
 menuToggle.addEventListener("click", () => {
   const isOpen = mainNav.classList.toggle("open");
+
   menuToggle.setAttribute("aria-expanded", String(isOpen));
+
   menuToggle.setAttribute(
     "aria-label",
     isOpen ? "Tutup menu navigasi" : "Buka menu navigasi"
