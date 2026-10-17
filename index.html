@@ -1,1981 +1,1692 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Informasi Pengangkatan Anak | Dinas Sosial Kota Ambon</title>
-
-  <meta
-    name="description"
-    content="Media informasi persyaratan dan prosedur pengangkatan anak bagi Calon Orang Tua Angkat (COTA) di Dinas Sosial Kota Ambon."
-  >
-
-  <style>
-    :root {
-      --navy: #123568;
-      --navy-dark: #09264d;
-      --gold: #e7b735;
-      --gold-light: #fff5d9;
-      --blue-light: #eff6fc;
-      --blue-soft: #e4eff9;
-      --cream: #fffdf7;
-      --white: #ffffff;
-      --text: #26364b;
-      --muted: #64748b;
-      --border: #dce5ef;
-      --shadow: 0 8px 25px rgba(9, 38, 77, 0.09);
-      --radius: 18px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 100px;
-    }
-
-    body {
-      font-family: "Plus Jakarta Sans", Arial, sans-serif;
-      background: var(--white);
-      color: var(--text);
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-    }
-
-    button {
-      font: inherit;
-    }
-
-    .container {
-      width: min(1240px, 94%);
-      margin: 0 auto;
-    }
-
-    .section {
-      position: relative;
-      padding: 68px 0;
-      isolation: isolate;
-    }
-
-    .section-light {
-      background:
-        radial-gradient(
-          ellipse at 0% 0%,
-          rgba(228, 239, 249, 0.9),
-          transparent 42%
-        ),
-        var(--blue-light);
-    }
-
-    .section-light::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        var(--gold),
-        transparent
-      );
-      opacity: 0.65;
-      z-index: -1;
-    }
-
-    .section-heading {
-      text-align: center;
-      max-width: 760px;
-      margin: 0 auto 34px;
-    }
-
-    .section-label {
-      display: inline-block;
-      padding: 6px 14px;
-      margin-bottom: 12px;
-      border-radius: 30px;
-      background: var(--gold-light);
-      color: var(--navy);
-      font-size: 0.82rem;
-      font-weight: 800;
-    }
-
-    .section-heading h2 {
-      color: var(--navy);
-      font-size: clamp(1.6rem, 3vw, 2.25rem);
-      line-height: 1.3;
-      margin-bottom: 12px;
-    }
-
-    .section-heading p {
-      color: var(--muted);
-    }
-
-    /* HEADER */
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.97);
-      border-bottom: 1px solid var(--border);
-      box-shadow: 0 3px 14px rgba(9, 38, 77, 0.06);
-      backdrop-filter: blur(10px);
-    }
-
-    .header-inner {
-      min-height: 76px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      position: relative;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      min-width: 0;
-    }
-
-    .brand img {
-      width: 48px;
-      height: 48px;
-      object-fit: contain;
-      flex-shrink: 0;
-    }
-
-    .brand-text strong {
-      display: block;
-      color: var(--navy);
-      font-size: 0.95rem;
-      line-height: 1.35;
-    }
-
-    .brand-text span {
-      display: block;
-      color: var(--muted);
-      font-size: 0.75rem;
-    }
-
-    .menu-toggle {
-      width: 46px;
-      height: 44px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 5px;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      background: var(--white);
-      cursor: pointer;
-      flex-shrink: 0;
-    }
-
-    .menu-toggle span {
-      width: 21px;
-      height: 2px;
-      background: var(--navy);
-      border-radius: 3px;
-    }
-
-    .main-nav {
-      display: none;
-      position: absolute;
-      top: calc(100% + 8px);
-      right: 0;
-      width: min(330px, 92vw);
-      max-height: 75vh;
-      overflow-y: auto;
-      padding: 12px;
-      flex-direction: column;
-      gap: 4px;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      box-shadow: var(--shadow);
-    }
-
-    .main-nav.open {
-      display: flex;
-    }
-
-    .main-nav a {
-      padding: 11px 13px;
-      border-radius: 9px;
-      color: var(--navy);
-      font-size: 0.9rem;
-      font-weight: 700;
-    }
-
-    .main-nav a:hover {
-      background: var(--blue-light);
-    }
-
-    /* TOMBOL */
-
-    .button {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-      padding: 11px 19px;
-      border: 2px solid transparent;
-      border-radius: 11px;
-      font-weight: 800;
-      font-size: 0.9rem;
-      line-height: 1.5;
-      text-align: center;
-      transition: transform 0.2s ease, background 0.2s ease;
-      cursor: pointer;
-    }
-
-    .button-primary {
-      color: var(--white);
-      background: var(--navy);
-    }
-
-    .button-primary:hover {
-      background: var(--navy-dark);
-      transform: translateY(-2px);
-    }
-
-    .button-secondary {
-      color: var(--navy);
-      background: var(--white);
-      border-color: var(--gold);
-    }
-
-    .button-secondary:hover {
-      background: var(--gold-light);
-    }
-
-    /* BANNER */
-
-    .hero {
-      position: relative;
-      padding: 18px 0 0;
-      background:
-        radial-gradient(
-          ellipse at 10% 0%,
-          rgba(228, 239, 249, 0.8),
-          transparent 45%
-        ),
-        var(--white);
-      overflow: hidden;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 250px;
-      height: 250px;
-      right: -140px;
-      top: 30px;
-      border: 1px solid rgba(231, 183, 53, 0.3);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .hero .container {
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-banner {
-      overflow: hidden;
-      border-radius: 15px;
-      background: var(--blue-light);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-    }
-
-    .hero-banner img {
-      display: block;
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-    }
-
-    .hero-actions {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      padding: 18px 12px 0;
-    }
-
-    /* MENU INFORMASI */
-
-    .menu-section {
-      position: relative;
-      padding: 42px 0 66px;
-      overflow: hidden;
-      background:
-        radial-gradient(
-          ellipse at 100% 25%,
-          rgba(228, 239, 249, 0.65),
-          transparent 38%
-        ),
-        var(--white);
-    }
-
-    .menu-section::after {
-      content: "";
-      position: absolute;
-      left: -90px;
-      bottom: -160px;
-      width: 300px;
-      height: 230px;
-      border: 1px solid rgba(18, 53, 104, 0.08);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .menu-section .container {
-      position: relative;
-      z-index: 1;
-    }
-
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 17px;
-    }
-
-    .menu-card {
-      display: grid;
-      grid-template-columns: 58px minmax(0, 1fr) 24px;
-      align-items: center;
-      gap: 14px;
-      min-height: 112px;
-      padding: 18px;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: 0 5px 18px rgba(9, 38, 77, 0.05);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .menu-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow);
-      border-color: var(--gold);
-    }
-
-    .menu-illustration {
-      width: 56px;
-      height: 56px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 16px;
-      background: var(--blue-light);
-      color: var(--navy);
-      font-size: 1.7rem;
-      font-weight: 800;
-    }
-
-    .illustration-hukum,
-    .illustration-persyaratan,
-    .illustration-faq {
-      background: var(--gold-light);
-    }
-
-    .illustration-keluarga,
-    .illustration-prosedur,
-    .illustration-media,
-    .illustration-pelayanan {
-      background: var(--blue-soft);
-    }
-
-    .menu-content h3 {
-      color: var(--navy);
-      font-size: 0.98rem;
-      line-height: 1.4;
-      margin-bottom: 5px;
-    }
-
-    .menu-content p {
-      color: var(--muted);
-      font-size: 0.82rem;
-      line-height: 1.55;
-    }
-
-    .menu-arrow {
-      color: var(--navy);
-      font-size: 1.45rem;
-      font-weight: 800;
-      text-align: center;
-    }
-
-    /* KARTU UMUM */
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .info-card {
-      padding: 24px;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: 0 5px 18px rgba(9, 38, 77, 0.04);
-    }
-
-    .info-card h3 {
-      margin-bottom: 10px;
-      color: var(--navy);
-      font-size: 1.08rem;
-    }
-
-    .info-card p,
-    .info-card li {
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    .info-card ul {
-      padding-left: 20px;
-    }
-
-    .info-card li + li {
-      margin-top: 7px;
-    }
-
-    .card-icon {
-      width: 48px;
-      height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 16px;
-      border-radius: 14px;
-      background: var(--gold-light);
-      color: var(--navy);
-      font-size: 1.45rem;
-    }
-
-    /* DASAR HUKUM */
-
-    .legal-list {
-      display: grid;
-      gap: 12px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .legal-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      padding: 18px 20px;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 13px;
-    }
-
-    .legal-number {
-      width: 34px;
-      height: 34px;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background: var(--gold-light);
-      color: var(--navy);
-      font-size: 0.85rem;
-      font-weight: 800;
-    }
-
-    .legal-item p {
-      color: var(--text);
-      font-size: 0.94rem;
-    }
-
-    /* KOTAK KONTEN */
-
-    .content-box {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 28px;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: 0 5px 18px rgba(9, 38, 77, 0.04);
-    }
-
-    .content-box h3 {
-      color: var(--navy);
-      margin-bottom: 12px;
-      font-size: 1.15rem;
-    }
-
-    .content-box p {
-      margin-bottom: 14px;
-    }
-
-    .content-box ul,
-    .content-box ol {
-      padding-left: 24px;
-    }
-
-    .content-box li {
-      padding-left: 4px;
-      margin-bottom: 10px;
-    }
-
-    .content-box li::marker {
-      color: var(--navy);
-      font-weight: 800;
-    }
-
-    .notice {
-      margin-top: 22px;
-      padding: 17px 20px;
-      background: var(--gold-light);
-      border-left: 5px solid var(--gold);
-      border-radius: 10px;
-      color: var(--navy);
-      font-size: 0.93rem;
-    }
-
-    .content-divider {
-      border: 0;
-      border-top: 1px solid var(--border);
-      margin: 28px 0;
-    }
-
-    /* DAFTAR PERSYARATAN */
-
-    .requirements-list {
-      list-style: none;
-      counter-reset: requirement;
-      padding: 0 !important;
-      display: grid;
-      gap: 10px;
-    }
-
-    .requirements-list li {
-      counter-increment: requirement;
-      position: relative;
-      padding: 12px 14px 12px 52px;
-      margin: 0;
-      background: var(--cream);
-      border: 1px solid #eee8d8;
-      border-radius: 11px;
-      color: var(--text);
-      line-height: 1.65;
-    }
-
-    .requirements-list li::before {
-      content: counter(requirement, decimal-leading-zero);
-      position: absolute;
-      left: 12px;
-      top: 12px;
-      width: 29px;
-      height: 29px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background: var(--gold-light);
-      color: var(--navy);
-      font-size: 0.72rem;
-      font-weight: 800;
-    }
-
-    .requirements-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 20px;
-    }
-
-    .requirements-actions .button {
-      flex: 1 1 220px;
-    }
-
-    .document-intro {
-      max-width: 760px;
-    }
-
-    /* PROSEDUR DUA KOLOM */
-
-    .procedure-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .procedure-card {
-      position: relative;
-      padding: 25px;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      box-shadow: 0 5px 18px rgba(9, 38, 77, 0.05);
-      overflow: hidden;
-    }
-
-    .procedure-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: var(--gold);
-    }
-
-    .procedure-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      margin-bottom: 15px;
-      border-radius: 50%;
-      background: var(--gold-light);
-      color: var(--navy);
-      font-size: 0.85rem;
-      font-weight: 800;
-    }
-
-    .procedure-card h3 {
-      color: var(--navy);
-      font-size: 1.08rem;
-      line-height: 1.5;
-      margin-bottom: 10px;
-    }
-
-    .procedure-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
-      margin-bottom: 19px;
-    }
-
-    .procedure-card .button {
-      width: 100%;
-    }
-
-    /* FAQ */
-
-    .faq-list {
-      max-width: 900px;
-      margin: 0 auto;
-      display: grid;
-      gap: 13px;
-    }
-
-    .faq-item {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 13px;
-      overflow: hidden;
-    }
-
-    .faq-item summary {
-      position: relative;
-      padding: 19px 50px 19px 20px;
-      color: var(--navy);
-      font-weight: 800;
-      cursor: pointer;
-      list-style: none;
-    }
-
-    .faq-item summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .faq-item summary::after {
-      content: "+";
-      position: absolute;
-      right: 20px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--navy);
-      font-size: 1.5rem;
-      font-weight: 500;
-    }
-
-    .faq-item[open] summary::after {
-      content: "−";
-    }
-
-    .faq-answer {
-      padding: 0 20px 20px;
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    /* MEDIA DIGITAL */
-
-    .media-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    .media-card {
-      overflow: hidden;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: 0 5px 18px rgba(9, 38, 77, 0.06);
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .media-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow);
-    }
-
-    .media-image {
-      min-height: 190px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 18px;
-      background:
-        radial-gradient(
-          ellipse at 50% 100%,
-          rgba(231, 183, 53, 0.12),
-          transparent 65%
-        ),
-        var(--blue-light);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .media-image img {
-      display: block;
-      width: 100%;
-      max-height: 210px;
-      object-fit: contain;
-    }
-
-    .media-placeholder {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 92px;
-      height: 92px;
-      border-radius: 24px;
-      background: var(--white);
-      color: var(--navy);
-      font-size: 2.7rem;
-      box-shadow: 0 5px 20px rgba(9, 38, 77, 0.08);
-    }
-
-    .media-body {
-      padding: 22px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      flex: 1;
-    }
-
-    .media-body h3 {
-      margin-bottom: 8px;
-      color: var(--navy);
-      font-size: 1.08rem;
-    }
-
-    .media-body p {
-      margin-bottom: 18px;
-      color: var(--muted);
-      font-size: 0.9rem;
-      flex: 1;
-    }
-
-    .media-body .button {
-      width: 100%;
-      margin-top: auto;
-    }
-
-    .media-buttons {
-      width: 100%;
-      display: grid;
-      gap: 10px;
-      margin-top: auto;
-    }
-
-    /* INFORMASI PELAYANAN */
-
-    .contact-section {
-      position: relative;
-      padding: 68px 0;
-      background:
-        radial-gradient(
-          ellipse at 0% 0%,
-          rgba(42, 83, 139, 0.35),
-          transparent 48%
-        ),
-        var(--navy-dark);
-      color: var(--white);
-      overflow: hidden;
-    }
-
-    .contact-section::before {
-      content: "";
-      position: absolute;
-      top: -130px;
-      right: -80px;
-      width: 280px;
-      height: 280px;
-      border: 1px solid rgba(231, 183, 53, 0.25);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .contact-section .container {
-      position: relative;
-      z-index: 1;
-    }
-
-    .contact-heading {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto 35px;
-    }
-
-    .contact-heading .section-label {
-      background: var(--gold);
-      color: var(--navy-dark);
-    }
-
-    .contact-heading h2 {
-      margin-bottom: 12px;
-      color: var(--white);
-      font-size: clamp(1.7rem, 3vw, 2.25rem);
-    }
-
-    .contact-heading p {
-      color: #d9e5f4;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .contact-card {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      padding: 22px;
-      background: rgba(255, 255, 255, 0.07);
-      border: 1px solid rgba(255, 255, 255, 0.17);
-      border-radius: 16px;
-    }
-
-    .contact-icon {
-      width: 48px;
-      height: 48px;
-      flex-shrink: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 13px;
-      background: var(--gold);
-      color: var(--navy-dark);
-      font-size: 1.35rem;
-      font-weight: 800;
-    }
-
-    .contact-card h3 {
-      margin-bottom: 5px;
-      color: var(--gold);
-      font-size: 1rem;
-    }
-
-    .contact-card p,
-    .contact-card a {
-      color: var(--white);
-      font-size: 0.92rem;
-      overflow-wrap: anywhere;
-    }
-
-    .contact-card a:hover {
-      color: var(--gold);
-      text-decoration: underline;
-    }
-
-    .social-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 8px;
-    }
-
-    .social-links a {
-      padding: 7px 10px;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      border-radius: 8px;
-      font-size: 0.82rem;
-    }
-
-    .contact-action {
-      text-align: center;
-      margin-top: 28px;
-    }
-
-    .contact-action .button {
-      background: var(--gold);
-      color: var(--navy-dark);
-    }
-
-    .contact-action .button:hover {
-      background: #f4cc59;
-    }
-
-    /* FOOTER */
-
-    .site-footer {
-      padding: 22px 0;
-      background: #061a35;
-      color: #d9e5f4;
-      text-align: center;
-      font-size: 0.84rem;
-    }
-
-    .site-footer strong {
-      color: var(--gold);
-    }
-
-    /* RESPONSIVE */
-
-    @media (max-width: 760px) {
-      html {
-        scroll-padding-top: 82px;
-      }
-
-      .container {
-        width: 92%;
-      }
-
-      .header-inner {
-        min-height: 70px;
-      }
-
-      .brand img {
-        width: 42px;
-        height: 42px;
-      }
-
-      .brand-text strong {
-        font-size: 0.82rem;
-      }
-
-      .brand-text span {
-        font-size: 0.69rem;
-      }
-
-      .section {
-        padding: 50px 0;
-      }
-
-      .hero {
-        padding-top: 12px;
-      }
-
-      .hero-banner {
-        border-radius: 12px;
-      }
-
-      .hero-actions {
-        padding: 15px 0 0;
-      }
-
-      .hero-actions .button {
-        width: 100%;
-      }
-
-      .menu-section {
-        padding: 32px 0 50px;
-      }
-
-      .section-heading {
-        margin-bottom: 27px;
-      }
-
-      .menu-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-
-      .menu-card {
-        grid-template-columns: 48px minmax(0, 1fr) 20px;
-        gap: 12px;
-        min-height: 95px;
-        padding: 14px;
-      }
-
-      .menu-illustration {
-        width: 46px;
-        height: 46px;
-        border-radius: 12px;
-        font-size: 1.45rem;
-      }
-
-      .menu-content h3 {
-        font-size: 0.91rem;
-      }
-
-      .menu-content p {
-        font-size: 0.78rem;
-      }
-
-      .card-grid,
-      .media-grid,
-      .contact-grid,
-      .procedure-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .content-box {
-        padding: 21px 16px;
-      }
-
-      .content-box ul,
-      .content-box ol {
-        padding-left: 21px;
-      }
-
-      .requirements-list {
-        padding-left: 0 !important;
-      }
-
-      .requirements-list li {
-        padding: 11px 10px 11px 47px;
-        font-size: 0.91rem;
-      }
-
-      .requirements-list li::before {
-        left: 10px;
-      }
-
-      .requirements-actions {
-        flex-direction: column;
-      }
-
-      .requirements-actions .button {
-        width: 100%;
-        flex-basis: auto;
-      }
-
-      .legal-item {
-        padding: 14px;
-      }
-
-      .procedure-card {
-        padding: 21px;
-      }
-
-      .contact-card {
-        padding: 17px;
-      }
-
-      .media-image {
-        min-height: 155px;
-      }
-
-      .media-body {
-        padding: 19px;
-      }
-    }
-
-    @media (min-width: 761px) and (max-width: 1000px) {
-      .container {
-        width: 94%;
-      }
-
-      .menu-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .card-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .media-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        transition-duration: 0.01ms !important;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Informasi persyaratan dan prosedur pengangkatan anak bagi Calon Orang Tua Angkat di Dinas Sosial Kota Ambon.">
+<title>Informasi Pengangkatan Anak | Dinas Sosial Kota Ambon</title>
+
+<style>
+:root {
+  --navy: #123568;
+  --navy-dark: #09264d;
+  --gold: #e7b735;
+  --gold-light: #fff5d9;
+  --blue-light: #eff6fc;
+  --blue-soft: #e4eff9;
+  --cream: #fffdf7;
+  --white: #ffffff;
+  --text: #26364b;
+  --muted: #64748b;
+  --border: #dce5ef;
+  --shadow: 0 8px 25px rgba(9,38,77,.09);
+  --radius: 18px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+  background: #fff;
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  font: inherit;
+}
+
+.container {
+  width: min(1360px, 96%);
+  margin: 0 auto;
+}
+
+/* HEADER */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,.97);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 3px 14px rgba(9,38,77,.06);
+  backdrop-filter: blur(10px);
+}
+
+.header-inner {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  position: relative;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.brand img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.brand-text strong {
+  display: block;
+  color: var(--navy);
+  font-size: .95rem;
+  line-height: 1.35;
+}
+
+.brand-text span {
+  display: block;
+  color: var(--muted);
+  font-size: .75rem;
+}
+
+.menu-toggle {
+  width: 46px;
+  height: 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fff;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.menu-toggle span {
+  width: 21px;
+  height: 2px;
+  background: var(--navy);
+  border-radius: 3px;
+}
+
+.main-nav {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: min(330px, 92vw);
+  max-height: 75vh;
+  overflow-y: auto;
+  padding: 12px;
+  flex-direction: column;
+  gap: 4px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.main-nav.open {
+  display: flex;
+}
+
+.main-nav a {
+  padding: 11px 13px;
+  border-radius: 9px;
+  color: var(--navy);
+  font-size: .9rem;
+  font-weight: 700;
+}
+
+.main-nav a:hover {
+  background: var(--blue-light);
+}
+
+/* TOMBOL */
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 19px;
+  border: 2px solid transparent;
+  border-radius: 11px;
+  font-weight: 800;
+  font-size: .9rem;
+  line-height: 1.5;
+  text-align: center;
+  transition: transform .2s, background .2s;
+  cursor: pointer;
+}
+
+.button-primary {
+  color: #fff;
+  background: var(--navy);
+}
+
+.button-primary:hover {
+  background: var(--navy-dark);
+  transform: translateY(-2px);
+}
+
+.button-secondary {
+  color: var(--navy);
+  background: #fff;
+  border-color: var(--gold);
+}
+
+.button-secondary:hover {
+  background: var(--gold-light);
+}
+
+/* BANNER */
+.hero {
+  position: relative;
+  padding: 12px 0 0;
+  background:
+    radial-gradient(ellipse at 8% 0%, rgba(228,239,249,.95), transparent 48%),
+    #fff;
+  overflow: hidden;
+}
+
+.hero:before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: -8%;
+  width: 65%;
+  height: 200px;
+  border: 2px solid rgba(231,183,53,.45);
+  border-radius: 0 0 55% 30%;
+  transform: rotate(-3deg);
+  pointer-events: none;
+}
+
+.hero:after {
+  content: "";
+  position: absolute;
+  right: -110px;
+  top: 20px;
+  width: 270px;
+  height: 270px;
+  border: 2px solid rgba(231,183,53,.4);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-banner {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 15px;
+  background: var(--blue-light);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.hero-banner img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 14px 12px 0;
+}
+
+/* HIASAN GELOMBANG */
+.menu-section {
+  position: relative;
+  padding: 34px 0 62px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 100% 20%, rgba(228,239,249,.9), transparent 40%),
+    linear-gradient(180deg,#fff,#f7fbff);
+}
+
+.menu-section:before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: -5%;
+  width: 110%;
+  height: 150px;
+  background: rgba(228,239,249,.45);
+  border-radius: 0 0 50% 20%;
+  transform: rotate(-2deg);
+  pointer-events: none;
+}
+
+.menu-section:after {
+  content: "";
+  position: absolute;
+  left: -90px;
+  bottom: -160px;
+  width: 300px;
+  height: 230px;
+  border: 1px solid rgba(18,53,104,.15);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.menu-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* BAGIAN KONTEN */
+.section {
+  position: relative;
+  padding: 68px 0;
+  isolation: isolate;
+}
+
+.section:after {
+  content: "";
+  position: absolute;
+  right: -100px;
+  bottom: -125px;
+  width: 250px;
+  height: 200px;
+  border: 1px solid rgba(231,183,53,.22);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.section-light {
+  background:
+    radial-gradient(ellipse at 0% 0%, rgba(228,239,249,.9), transparent 42%),
+    var(--blue-light);
+}
+
+.section-light:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg,transparent,var(--gold),transparent);
+  opacity: .75;
+  z-index: -1;
+}
+
+.section-heading {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 34px;
+}
+
+.section-label {
+  display: inline-block;
+  padding: 6px 14px;
+  margin-bottom: 12px;
+  border-radius: 30px;
+  background: var(--gold-light);
+  color: var(--navy);
+  font-size: .82rem;
+  font-weight: 800;
+}
+
+.section-heading h2 {
+  color: var(--navy);
+  font-size: clamp(1.6rem,3vw,2.25rem);
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+
+.section-heading h2:after {
+  content: "";
+  display: block;
+  width: 58px;
+  height: 3px;
+  margin: 11px auto 0;
+  background: var(--gold);
+  border-radius: 10px;
+}
+
+.section-heading p {
+  color: var(--muted);
+  text-align: center;
+}
+
+/* MENU INFORMASI */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 17px;
+}
+
+.menu-card {
+  display: grid;
+  grid-template-columns: 58px minmax(0,1fr) 24px;
+  align-items: center;
+  gap: 14px;
+  min-height: 112px;
+  padding: 18px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 5px 18px rgba(9,38,77,.05);
+  transition: transform .2s, box-shadow .2s;
+}
+
+.menu-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+  border-color: var(--gold);
+}
+
+.menu-illustration {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  background: var(--blue-light);
+  color: var(--navy);
+  font-size: 1.7rem;
+  font-weight: 800;
+}
+
+.illustration-hukum,
+.illustration-persyaratan,
+.illustration-faq {
+  background: var(--gold-light);
+}
+
+.illustration-keluarga,
+.illustration-prosedur,
+.illustration-media,
+.illustration-pelayanan {
+  background: var(--blue-soft);
+}
+
+.menu-content h3 {
+  color: var(--navy);
+  font-size: .98rem;
+  line-height: 1.4;
+  margin-bottom: 5px;
+}
+
+.menu-content p {
+  color: var(--muted);
+  font-size: .82rem;
+  line-height: 1.55;
+  text-align: justify;
+}
+
+.menu-arrow {
+  color: var(--navy);
+  font-size: 1.45rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+/* KARTU INFORMASI */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 20px;
+}
+
+.info-card {
+  padding: 24px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 5px 18px rgba(9,38,77,.05);
+  transition: transform .2s, box-shadow .2s;
+}
+
+.info-card:hover,
+.media-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.info-card h3 {
+  margin-bottom: 10px;
+  color: var(--navy);
+  font-size: 1.08rem;
+}
+
+.info-card p,
+.info-card li {
+  color: var(--muted);
+  font-size: .94rem;
+  text-align: justify;
+}
+
+.card-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  border-radius: 14px;
+  background: var(--gold-light);
+  color: var(--navy);
+  font-size: 1.45rem;
+}
+
+/* DASAR HUKUM */
+.legal-list {
+  display: grid;
+  gap: 12px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.legal-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 18px 20px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--gold);
+  border-radius: 13px;
+  box-shadow: 0 5px 16px rgba(9,38,77,.035);
+}
+
+.legal-number {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: var(--gold-light);
+  color: var(--navy);
+  font-size: .85rem;
+  font-weight: 800;
+}
+
+.legal-item p {
+  color: var(--text);
+  font-size: .94rem;
+  text-align: justify;
+  line-height: 1.8;
+}
+
+/* KONTEN DAN PERSYARATAN */
+.content-box {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 28px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 5px 18px rgba(9,38,77,.04);
+}
+
+.content-box h3 {
+  color: var(--navy);
+  margin-bottom: 12px;
+  font-size: 1.15rem;
+}
+
+.content-box p {
+  margin-bottom: 14px;
+  text-align: justify;
+}
+
+.content-box ul,
+.content-box ol {
+  padding-left: 24px;
+}
+
+.content-box li {
+  padding-left: 4px;
+  margin-bottom: 10px;
+}
+
+.content-box li::marker {
+  color: var(--navy);
+  font-weight: 800;
+}
+
+.content-divider {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 28px 0;
+}
+
+.notice {
+  margin-top: 22px;
+  padding: 17px 20px;
+  background: var(--gold-light);
+  border-left: 5px solid var(--gold);
+  border-radius: 10px;
+  color: var(--navy);
+  font-size: .93rem;
+}
+
+.requirements-list {
+  list-style: none;
+  counter-reset: requirement;
+  padding: 0 !important;
+  display: grid;
+  gap: 10px;
+}
+
+.requirements-list li {
+  counter-increment: requirement;
+  position: relative;
+  padding: 12px 14px 12px 52px;
+  margin: 0;
+  background: var(--cream);
+  border: 1px solid #eee8d8;
+  border-radius: 11px;
+  color: var(--text);
+  line-height: 1.65;
+  text-align: justify;
+}
+
+.requirements-list li:before {
+  content: counter(requirement,decimal-leading-zero);
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  width: 29px;
+  height: 29px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--gold-light);
+  color: var(--navy);
+  font-size: .72rem;
+  font-weight: 800;
+}
+
+.requirements-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.requirements-actions .button {
+  flex: 1 1 220px;
+}
+
+/* PROSEDUR */
+.procedure-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.procedure-card {
+  position: relative;
+  padding: 25px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 5px 18px rgba(9,38,77,.05);
+  overflow: hidden;
+}
+
+.procedure-card:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gold);
+}
+
+.procedure-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 15px;
+  border-radius: 50%;
+  background: var(--gold-light);
+  color: var(--navy);
+  font-size: .85rem;
+  font-weight: 800;
+}
+
+.procedure-card h3 {
+  color: var(--navy);
+  font-size: 1.08rem;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.procedure-card p {
+  color: var(--muted);
+  font-size: .92rem;
+  margin-bottom: 19px;
+  text-align: justify;
+}
+
+.procedure-card .button {
+  width: 100%;
+}
+
+/* FAQ */
+.faq-list {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  gap: 13px;
+}
+
+.faq-item {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  overflow: hidden;
+}
+
+.faq-item summary {
+  position: relative;
+  padding: 19px 50px 19px 20px;
+  color: var(--navy);
+  font-weight: 800;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary:after {
+  content: "+";
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--navy);
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.faq-item[open] summary:after {
+  content: "−";
+}
+
+.faq-answer {
+  padding: 0 20px 20px;
+  color: var(--muted);
+  font-size: .94rem;
+  text-align: justify;
+}
+
+/* MEDIA DIGITAL */
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 22px;
+}
+
+.media-card {
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 5px 18px rgba(9,38,77,.06);
+  display: flex;
+  flex-direction: column;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.media-image {
+  min-height: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  background:
+    radial-gradient(ellipse at 50% 100%,rgba(231,183,53,.12),transparent 65%),
+    var(--blue-light);
+  border-bottom: 1px solid var(--border);
+}
+
+.media-image img {
+  display: block;
+  width: 100%;
+  max-height: 210px;
+  object-fit: contain;
+}
+
+.media-body {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex: 1;
+}
+
+.media-body h3 {
+  margin-bottom: 8px;
+  color: var(--navy);
+  font-size: 1.08rem;
+}
+
+.media-body p {
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-size: .9rem;
+  flex: 1;
+  text-align: justify;
+}
+
+.media-body .button {
+  width: 100%;
+  margin-top: auto;
+}
+
+.media-buttons {
+  width: 100%;
+  display: grid;
+  gap: 10px;
+  margin-top: auto;
+}
+
+/* INFORMASI PELAYANAN */
+.contact-section {
+  position: relative;
+  padding: 68px 0;
+  background:
+    radial-gradient(ellipse at 0% 0%,rgba(42,83,139,.35),transparent 48%),
+    var(--navy-dark);
+  color: #fff;
+  overflow: hidden;
+}
+
+.contact-section:before {
+  content: "";
+  position: absolute;
+  top: -130px;
+  right: -80px;
+  width: 280px;
+  height: 280px;
+  border: 1px solid rgba(231,183,53,.25);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.contact-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-heading {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 35px;
+}
+
+.contact-heading .section-label {
+  background: var(--gold);
+  color: var(--navy-dark);
+}
+
+.contact-heading h2 {
+  margin-bottom: 12px;
+  color: #fff;
+  font-size: clamp(1.7rem,3vw,2.25rem);
+}
+
+.contact-heading p {
+  color: #d9e5f4;
+  text-align: center;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 18px;
+}
+
+.contact-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 22px;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.17);
+  border-radius: 16px;
+}
+
+.contact-icon {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 13px;
+  background: var(--gold);
+  color: var(--navy-dark);
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.contact-card h3 {
+  margin-bottom: 5px;
+  color: var(--gold);
+  font-size: 1rem;
+}
+
+.contact-card p,
+.contact-card a {
+  color: #fff;
+  font-size: .92rem;
+  overflow-wrap: anywhere;
+}
+
+.contact-card a:hover {
+  color: var(--gold);
+  text-decoration: underline;
+}
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 8px;
+}
+
+.social-links a {
+  padding: 7px 10px;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 8px;
+  font-size: .82rem;
+}
+
+.contact-action {
+  text-align: center;
+  margin-top: 28px;
+}
+
+.contact-action .button {
+  background: var(--gold);
+  color: var(--navy-dark);
+}
+
+.contact-action .button:hover {
+  background: #f4cc59;
+}
+
+.site-footer {
+  padding: 22px 0;
+  background: #061a35;
+  color: #d9e5f4;
+  text-align: center;
+  font-size: .84rem;
+}
+
+.site-footer strong {
+  color: var(--gold);
+}
+
+/* RESPONSIF */
+@media(max-width:760px) {
+  html {
+    scroll-padding-top: 82px;
+  }
+
+  .container {
+    width: 93%;
+  }
+
+  .header-inner {
+    min-height: 70px;
+  }
+
+  .brand img {
+    width: 42px;
+    height: 42px;
+  }
+
+  .brand-text strong {
+    font-size: .82rem;
+  }
+
+  .brand-text span {
+    font-size: .69rem;
+  }
+
+  .section {
+    padding: 50px 0;
+  }
+
+  .hero {
+    padding-top: 10px;
+  }
+
+  .hero-banner {
+    border-radius: 12px;
+  }
+
+  .hero-actions {
+    padding: 14px 0 0;
+  }
+
+  .hero-actions .button {
+    width: 100%;
+  }
+
+  .menu-section {
+    padding: 30px 0 48px;
+  }
+
+  .section-heading {
+    margin-bottom: 27px;
+  }
+
+  .menu-grid,
+  .card-grid,
+  .media-grid,
+  .contact-grid,
+  .procedure-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-grid {
+    gap: 12px;
+  }
+
+  .menu-card {
+    grid-template-columns: 48px minmax(0,1fr) 20px;
+    gap: 12px;
+    min-height: 95px;
+    padding: 14px;
+  }
+
+  .menu-illustration {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    font-size: 1.45rem;
+  }
+
+  .menu-content h3 {
+    font-size: .91rem;
+  }
+
+  .menu-content p {
+    font-size: .78rem;
+  }
+
+  .content-box {
+    padding: 21px 16px;
+  }
+
+  .content-box ul,
+  .content-box ol {
+    padding-left: 21px;
+  }
+
+  .requirements-list {
+    padding-left: 0 !important;
+  }
+
+  .requirements-list li {
+    padding: 11px 10px 11px 47px;
+    font-size: .91rem;
+  }
+
+  .requirements-list li:before {
+    left: 10px;
+  }
+
+  .requirements-actions {
+    flex-direction: column;
+  }
+
+  .requirements-actions .button {
+    width: 100%;
+    flex-basis: auto;
+  }
+
+  .legal-item {
+    padding: 14px;
+  }
+
+  .procedure-card {
+    padding: 21px;
+  }
+
+  .contact-card {
+    padding: 17px;
+  }
+
+  .media-image {
+    min-height: 155px;
+  }
+
+  .media-body {
+    padding: 19px;
+  }
+
+  .hero:before {
+    height: 130px;
+  }
+
+  .hero:after {
+    width: 180px;
+    height: 180px;
+    right: -100px;
+  }
+
+  .legal-item p {
+    font-size: .9rem;
+  }
+}
+
+@media(min-width:761px) and (max-width:1000px) {
+  .container {
+    width: 95%;
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
+
+  .card-grid,
+  .media-grid {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *:before,
+  *:after {
+    transition-duration: .01ms !important;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="container header-inner">
+<header class="site-header">
+  <div class="container header-inner">
 
-      <a class="brand" href="#beranda" aria-label="Kembali ke beranda">
-        <img src="IMG_1866.PNG" alt="Logo Dinas Sosial Kota Ambon">
-        <div class="brand-text">
-          <strong>Dinas Sosial Kota Ambon</strong>
-          <span>Informasi Pengangkatan Anak</span>
+    <a class="brand" href="#beranda" aria-label="Kembali ke beranda">
+      <img src="IMG_1866.PNG" alt="Logo Dinas Sosial Kota Ambon">
+      <div class="brand-text">
+        <strong>Dinas Sosial Kota Ambon</strong>
+        <span>Informasi Pengangkatan Anak</span>
+      </div>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" type="button"
+      aria-label="Buka menu navigasi" aria-expanded="false"
+      aria-controls="mainNav">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="main-nav" id="mainNav" aria-label="Navigasi utama">
+      <a href="#beranda">Beranda</a>
+      <a href="#dasar-hukum">Dasar Hukum</a>
+      <a href="#mengenal">Mengenal Pengangkatan Anak</a>
+      <a href="#persyaratan">Persyaratan</a>
+      <a href="#prosedur">Prosedur</a>
+      <a href="#media-digital">Media Digital</a>
+      <a href="#faq">FAQ</a>
+      <a href="#informasi-pelayanan">Informasi Pelayanan</a>
+    </nav>
+
+  </div>
+</header>
+
+<main>
+
+<!-- BERANDA -->
+<section class="hero" id="beranda">
+  <div class="container">
+    <div class="hero-banner">
+      <img src="header-pengangkatan-anak.png"
+        alt="Panduan lengkap persyaratan dan prosedur pengangkatan anak bagi Calon Orang Tua Angkat"
+        fetchpriority="high">
+    </div>
+
+    <div class="hero-actions">
+      <a class="button button-primary" href="#menu-informasi">
+        Jelajahi Informasi <span aria-hidden="true">→</span>
+      </a>
+      <a class="button button-secondary" href="#media-digital">
+        Lihat Panduan Digital
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- MENU INFORMASI -->
+<section class="menu-section" id="menu-informasi">
+  <div class="container">
+
+    <div class="section-heading">
+      <span class="section-label">Pusat Informasi</span>
+      <h2>Menu Informasi</h2>
+      <p>Pilih informasi yang ingin diketahui untuk memahami persyaratan dan prosedur pengangkatan anak bagi Calon Orang Tua Angkat (COTA).</p>
+    </div>
+
+    <div class="menu-grid">
+
+      <a class="menu-card" href="#dasar-hukum">
+        <div class="menu-illustration illustration-hukum" aria-hidden="true">§</div>
+        <div class="menu-content">
+          <h3>Dasar Hukum</h3>
+          <p>Peraturan yang menjadi landasan pelaksanaan pengangkatan anak.</p>
         </div>
+        <span class="menu-arrow" aria-hidden="true">›</span>
       </a>
 
-      <button
-        class="menu-toggle"
-        id="menuToggle"
-        type="button"
-        aria-label="Buka menu navigasi"
-        aria-expanded="false"
-        aria-controls="mainNav"
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <a class="menu-card" href="#mengenal">
+        <div class="menu-illustration illustration-keluarga" aria-hidden="true">♡</div>
+        <div class="menu-content">
+          <h3>Mengenal Pengangkatan Anak</h3>
+          <p>Pengertian, tujuan, dan hal penting yang perlu diketahui.</p>
+        </div>
+        <span class="menu-arrow" aria-hidden="true">›</span>
+      </a>
 
-      <nav class="main-nav" id="mainNav" aria-label="Navigasi utama">
-        <a href="#beranda">Beranda</a>
-        <a href="#dasar-hukum">Dasar Hukum</a>
-        <a href="#mengenal">Mengenal Pengangkatan Anak</a>
-        <a href="#persyaratan">Persyaratan</a>
-        <a href="#prosedur">Prosedur</a>
-        <a href="#media-digital">Media Digital</a>
-        <a href="#faq">FAQ</a>
-        <a href="#informasi-pelayanan">Informasi Pelayanan</a>
-      </nav>
+      <a class="menu-card" href="#persyaratan">
+        <div class="menu-illustration illustration-persyaratan" aria-hidden="true">✓</div>
+        <div class="menu-content">
+          <h3>Persyaratan Pengangkatan Anak</h3>
+          <p>Persyaratan bagi COTA dan Calon Anak Angkat (CAA).</p>
+        </div>
+        <span class="menu-arrow" aria-hidden="true">›</span>
+      </a>
+
+      <a class="menu-card" href="#prosedur">
+        <div class="menu-illustration illustration-prosedur" aria-hidden="true">⇢</div>
+        <div class="menu-content">
+          <h3>Prosedur Pengangkatan Anak</h3>
+          <p>Informasi kategori prosedur pengangkatan anak.</p>
+        </div>
+        <span class="menu-arrow" aria-hidden="true">›</span>
+      </a>
+
+      <a class="menu-card" href="#media-digital">
+        <div class="menu-illustration illustration-media" aria-hidden="true">▤</div>
+        <div class="menu-content">
+          <h3>Media Informasi Digital</h3>
+          <p>Akses e-book, dokumen gabungan, leaflet, dan video.</p>
+        </div>
+        <span class="menu-arrow" aria-hidden="true">›</span>
+      </a>
+
+      <a class="menu-card" href="#faq">
+        <div class="menu-illustration illustration-faq" aria-hidden="true">?</div>
+        <div class="menu-content">
+          <h3>FAQ (Pertanyaan Umum)</h3>
+          <p>Jawaban atas pertanyaan yang sering diajukan COTA.</p>
+        </div>
+        <span class="menu-arrow" aria-hidden="true">›</span>
+      </a>
+
+      <a class="menu-card" href="#informasi-pelayanan">
+        <div class="menu-illustration illustration-pelayanan" aria-hidden="true">⌖</div>
+        <div class="menu-content">
+          <h3>Informasi Pelayanan</h3>
+          <p>Alamat, jam pelayanan, dan kontak Dinas Sosial Kota Ambon.</p>
+        </div>
+        <span class="menu-arrow" aria-hidden="true">›</span>
+      </a>
 
     </div>
-  </header>
-
-  <main>
-
-    <!-- BANNER -->
-    <section class="hero" id="beranda">
-      <div class="container">
-
-        <div class="hero-banner">
-          <img
-            src="header-pengangkatan-anak.png"
-            alt="Panduan lengkap persyaratan dan prosedur pengangkatan anak bagi Calon Orang Tua Angkat"
-            fetchpriority="high"
-          >
-        </div>
-
-        <div class="hero-actions">
-          <a class="button button-primary" href="#menu-informasi">
-            Jelajahi Informasi <span aria-hidden="true">→</span>
-          </a>
-
-          <a class="button button-secondary" href="#media-digital">
-            Lihat Panduan Digital
-          </a>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- MENU INFORMASI -->
-    <section class="menu-section" id="menu-informasi">
-      <div class="container">
-
-        <div class="section-heading">
-          <span class="section-label">Pusat Informasi</span>
-          <h2>Menu Informasi</h2>
-          <p>
-            Pilih informasi yang ingin diketahui untuk memahami persyaratan
-            dan prosedur pengangkatan anak bagi Calon Orang Tua Angkat (COTA).
-          </p>
-        </div>
-
-        <div class="menu-grid">
-
-          <a class="menu-card" href="#dasar-hukum">
-            <div class="menu-illustration illustration-hukum" aria-hidden="true">§</div>
-            <div class="menu-content">
-              <h3>Dasar Hukum</h3>
-              <p>Peraturan yang menjadi landasan pelaksanaan pengangkatan anak.</p>
-            </div>
-            <span class="menu-arrow" aria-hidden="true">›</span>
-          </a>
-
-          <a class="menu-card" href="#mengenal">
-            <div class="menu-illustration illustration-keluarga" aria-hidden="true">♡</div>
-            <div class="menu-content">
-              <h3>Mengenal Pengangkatan Anak</h3>
-              <p>Pengertian, tujuan, dan hal penting yang perlu diketahui.</p>
-            </div>
-            <span class="menu-arrow" aria-hidden="true">›</span>
-          </a>
-
-          <a class="menu-card" href="#persyaratan">
-            <div class="menu-illustration illustration-persyaratan" aria-hidden="true">✓</div>
-            <div class="menu-content">
-              <h3>Persyaratan Pengangkatan Anak</h3>
-              <p>Informasi persyaratan bagi COTA dan Calon Anak Angkat (CAA).</p>
-            </div>
-            <span class="menu-arrow" aria-hidden="true">›</span>
-          </a>
-
-          <a class="menu-card" href="#prosedur">
-            <div class="menu-illustration illustration-prosedur" aria-hidden="true">⇢</div>
-            <div class="menu-content">
-              <h3>Prosedur Pengangkatan Anak</h3>
-              <p>Informasi kategori prosedur pengangkatan anak.</p>
-            </div>
-            <span class="menu-arrow" aria-hidden="true">›</span>
-          </a>
-
-          <a class="menu-card" href="#media-digital">
-            <div class="menu-illustration illustration-media" aria-hidden="true">▤</div>
-            <div class="menu-content">
-              <h3>Media Informasi Digital</h3>
-              <p>Akses e-book, checklist dokumen, format surat, leaflet, dan video.</p>
-            </div>
-            <span class="menu-arrow" aria-hidden="true">›</span>
-          </a>
-
-          <a class="menu-card" href="#faq">
-            <div class="menu-illustration illustration-faq" aria-hidden="true">?</div>
-            <div class="menu-content">
-              <h3>FAQ (Pertanyaan Umum)</h3>
-              <p>Jawaban atas pertanyaan yang sering diajukan COTA.</p>
-            </div>
-            <span class="menu-arrow" aria-hidden="true">›</span>
-          </a>
-
-          <a class="menu-card" href="#informasi-pelayanan">
-            <div class="menu-illustration illustration-pelayanan" aria-hidden="true">⌖</div>
-            <div class="menu-content">
-              <h3>Informasi Pelayanan</h3>
-              <p>Alamat, jam pelayanan, dan kontak Dinas Sosial Kota Ambon.</p>
-            </div>
-            <span class="menu-arrow" aria-hidden="true">›</span>
-          </a>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- DASAR HUKUM -->
-    <section class="section section-light" id="dasar-hukum">
-      <div class="container">
-
-        <div class="section-heading">
-          <span class="section-label">Landasan Peraturan</span>
-          <h2>Dasar Hukum Pengangkatan Anak</h2>
-          <p>
-            Pelaksanaan pengangkatan anak mengacu pada peraturan
-            perundang-undangan yang menjadi rujukan pelayanan.
-          </p>
-        </div>
-
-        <div class="legal-list">
-
-          <div class="legal-item">
-            <span class="legal-number">01</span>
-            <p>
-              Undang-Undang Nomor 35 Tahun 2014 tentang Perubahan atas
-              Undang-Undang Nomor 23 Tahun 2002 tentang Perlindungan Anak,
-              khususnya Pasal 39 sampai dengan Pasal 41.
-            </p>
-          </div>
-
-          <div class="legal-item">
-            <span class="legal-number">02</span>
-            <p>
-              Peraturan Pemerintah Nomor 54 Tahun 2007 tentang
-              Pelaksanaan Pengangkatan Anak.
-            </p>
-          </div>
-
-          <div class="legal-item">
-            <span class="legal-number">03</span>
-            <p>
-              Peraturan Menteri Sosial Nomor 110/HUK/2009 tentang
-              Persyaratan Pengangkatan Anak.
-            </p>
-          </div>
-
-          <div class="legal-item">
-            <span class="legal-number">04</span>
-            <p>
-              Peraturan Direktur Jenderal Rehabilitasi Sosial Nomor 02
-              Tahun 2012 tentang Pedoman Teknis Prosedur Pengangkatan Anak.
-            </p>
-          </div>
-
-          <div class="legal-item">
-            <span class="legal-number">05</span>
-            <p>
-              Surat Edaran Mahkamah Agung (SEMA) Nomor 6 Tahun 1983.
-            </p>
-          </div>
-
-        </div>
-
-        <div class="notice">
-          <strong>Catatan:</strong> Pastikan daftar dasar hukum dan status
-          keberlakuannya diperiksa kembali bersama mentor atau petugas terkait
-          sebelum website digunakan sebagai rujukan resmi.
-        </div>
-
-      </div>
-    </section>
-
-    <!-- MENGENAL PENGANGKATAN ANAK -->
-    <section class="section" id="mengenal">
-      <div class="container">
-
-        <div class="section-heading">
-          <span class="section-label">Kenali Lebih Dekat</span>
-          <h2>Mengenal Pengangkatan Anak</h2>
-          <p>
-            Pahami pengertian, tujuan, dan prinsip penting sebelum memulai
-            proses pengangkatan anak.
-          </p>
-        </div>
-
-        <div class="card-grid">
-
-          <article class="info-card">
-            <div class="card-icon" aria-hidden="true">♡</div>
-            <h3>Pengertian Pengangkatan Anak</h3>
-            <p>
-              Pengangkatan anak merupakan proses yang dilakukan sesuai dengan
-              ketentuan yang berlaku untuk memberikan pengasuhan dan
-              perlindungan kepada anak dalam lingkungan keluarga, dengan tetap
-              mengutamakan kepentingan terbaik bagi anak. Dalam pelaksanaannya,
-              pengangkatan anak dilakukan melalui persyaratan dan tahapan
-              pelayanan yang perlu dipenuhi oleh Calon Orang Tua Angkat (COTA).
-            </p>
-          </article>
-
-          <article class="info-card">
-            <div class="card-icon" aria-hidden="true">⌂</div>
-            <h3>Tujuan Pengangkatan Anak</h3>
-            <p>
-              Pengangkatan anak merupakan upaya untuk memberikan pengasuhan,
-              perlindungan, dan pemenuhan kebutuhan anak dalam lingkungan
-              keluarga yang layak, dengan tetap mengutamakan kepentingan
-              terbaik bagi anak.
-            </p>
-          </article>
-
-          <article class="info-card">
-            <div class="card-icon" aria-hidden="true">✓</div>
-            <h3>Hal Penting bagi COTA</h3>
-            <p>
-              COTA perlu memahami persyaratan, menyiapkan dokumen, mengikuti
-              tahapan pelayanan, serta mengutamakan kepentingan terbaik,
-              perlindungan, dan kesejahteraan anak. Pengajuan permohonan tidak
-              berarti pengangkatan anak otomatis disetujui.
-            </p>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- PERSYARATAN -->
-    <section class="section section-light" id="persyaratan">
-      <div class="container">
-
-        <div class="section-heading">
-          <span class="section-label">Persiapan COTA</span>
-          <h2>Persyaratan Pengangkatan Anak</h2>
-          <p>
-            Kenali persyaratan Calon Orang Tua Angkat dan Calon Anak Angkat
-            sebelum mempersiapkan dokumen pengajuan.
-          </p>
-        </div>
-
-        <div class="content-box">
-
-          <h3>01 — Persyaratan Calon Orang Tua Angkat (COTA)</h3>
-          <p>
-            Calon Orang Tua Angkat (COTA) perlu memenuhi persyaratan berikut:
-          </p>
-
-          <ol class="requirements-list">
-            <li>Sehat jasmani dan rohani.</li>
-            <li>Berumur paling rendah 30 tahun dan paling tinggi 55 tahun.</li>
-            <li>Beragama sama dengan agama Calon Anak Angkat (CAA).</li>
-            <li>Berkelakuan baik dan tidak pernah dihukum karena melakukan tindak kejahatan.</li>
-            <li>Berstatus menikah secara sah paling singkat 5 tahun.</li>
-            <li>Tidak merupakan pasangan sejenis.</li>
-            <li>Tidak atau belum mempunyai anak atau hanya memiliki 1 anak.</li>
-            <li>Dalam keadaan mampu secara ekonomi dan sosial.</li>
-            <li>Memperoleh persetujuan anak dan izin tertulis Orang Tua/Wali Anak.</li>
-            <li>Membuat surat pernyataan tertulis bahwa pengangkatan anak adalah demi kepentingan terbaik anak, kesejahteraan dan perlindungan anak.</li>
-            <li>Adanya laporan sosial dari Pekerja Sosial setempat.</li>
-            <li>Telah mengasuh Calon Anak Angkat paling singkat 6 bulan, sejak izin pengasuhan diberikan.</li>
-            <li>Memperoleh izin Menteri atau Kepala Instansi Sosial Provinsi.</li>
-          </ol>
-
-          <hr class="content-divider">
-
-          <h3>02 — Persyaratan Calon Anak Angkat (CAA)</h3>
-          <p>
-            Calon Anak Angkat (CAA) harus memenuhi persyaratan berikut:
-          </p>
-
-          <ol class="requirements-list">
-            <li>Anak yang belum berusia 18 tahun.</li>
-            <li>Merupakan anak terlantar atau yang diterlantarkan.</li>
-            <li>Berada dalam asuhan keluarga atau lembaga pengasuh anak.</li>
-            <li>Memerlukan perlindungan khusus.</li>
-          </ol>
-
-          <div class="requirements-actions">
-            <a
-              class="button button-primary"
-              href="ebook-panduan-cota.pdf"
-              target="_blank"
-              rel="noopener"
-            >
-              Baca Persyaratan Lengkap di E-book →
-            </a>
-          </div>
-
-          <hr class="content-divider">
-
-          <h3>03 — Dokumen yang Diperlukan</h3>
-          <p class="document-intro">
-            Calon Orang Tua Angkat perlu menyiapkan dokumen persyaratan
-            yang berkaitan dengan COTA dan Calon Anak Angkat (CAA) untuk
-            mendukung proses pengajuan pengangkatan anak.
-          </p>
-
-          <div class="requirements-actions">
-            <a class="button button-secondary" href="#media-checklist">
-              Lihat Checklist Dokumen
-            </a>
-
-            <a class="button button-secondary" href="#media-surat">
-              Lihat Format Surat
-            </a>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- PROSEDUR -->
-    <section class="section" id="prosedur">
-      <div class="container">
-
-        <div class="section-heading">
-          <span class="section-label">Kategori Prosedur</span>
-          <h2>Prosedur Pengangkatan Anak</h2>
-          <p>
-            Pilih kategori pengangkatan anak untuk mengakses panduan
-            dan informasi prosedur yang sesuai.
-          </p>
-        </div>
-
-        <div class="procedure-grid">
-
-          <article class="procedure-card">
-            <span class="procedure-number">01</span>
-            <h3>Pengangkatan Anak Antar-WNI</h3>
-            <p>
-              Informasi mengenai prosedur pengangkatan anak antarwarga
-              negara Indonesia.
-            </p>
-
-            <a
-              class="button button-primary"
-              href="#media-digital"
-            >
-              Lihat Alur Prosedur →
-            </a>
-          </article>
-
-          <article class="procedure-card">
-            <span class="procedure-number">02</span>
-            <h3>Pengangkatan Anak WNA</h3>
-            <p>
-              Informasi mengenai prosedur pengangkatan anak yang
-              melibatkan warga negara asing.
-            </p>
-
-            <a
-              class="button button-primary"
-              href="#media-digital"
-            >
-              Lihat Alur Prosedur →
-            </a>
-          </article>
-
-        </div>
-
-        <div class="notice" style="max-width:1000px;margin:22px auto 0;">
-          <strong>Informasi:</strong> Untuk melihat uraian dan alur prosedur
-          yang lebih lengkap, silakan membaca e-book panduan. Rincian
-          prosedur perlu disesuaikan dengan kategori pengangkatan anak dan
-          ketentuan yang berlaku.
-        </div>
-
-      </div>
-    </section>
-
-    <!-- MEDIA DIGITAL -->
-    <section class="section section-light" id="media-digital">
-      <div class="container">
-
-        <div class="section-heading">
-          <span class="section-label">Akses Informasi</span>
-          <h2>Media Informasi Digital</h2>
-          <p>
-            Akses panduan dan media informasi untuk membantu memahami
-            persyaratan serta prosedur pengangkatan anak bagi COTA.
-          </p>
-        </div>
-
-        <div class="media-grid">
-
-          <!-- E-BOOK -->
-          <article class="media-card" id="media-ebook">
-            <div class="media-image">
-              <img
-                src="ilustrasi-ebook.png"
-                alt="Ilustrasi e-book panduan pengangkatan anak"
-                loading="lazy"
-              >
-            </div>
-
-            <div class="media-body">
-              <h3>E-book Panduan COTA</h3>
-              <p>
-                Panduan persyaratan, dokumen, dan informasi prosedur
-                pengangkatan anak bagi Calon Orang Tua Angkat.
-              </p>
-
-              <a
-                class="button button-primary"
-                href="ebook-panduan-cota.pdf"
-                target="_blank"
-                rel="noopener"
-              >
-                Baca E-book
-              </a>
-            </div>
-          </article>
-
-          <!-- CHECKLIST -->
-          <article class="media-card" id="media-checklist">
-            <div class="media-image">
-              <img
-                src="ilustrasi-checklist.png"
-                alt="Ilustrasi checklist dokumen COTA"
-                loading="lazy"
-              >
-            </div>
-
-            <div class="media-body">
-              <h3>Checklist Dokumen COTA</h3>
-              <p>
-                Daftar periksa untuk membantu COTA meninjau kelengkapan
-                dokumen sebelum berkonsultasi atau mengajukan permohonan.
-              </p>
-
-              <a
-                class="button button-primary"
-                href="checklist-cota.pdf"
-                target="_blank"
-                rel="noopener"
-              >
-                Lihat Checklist
-              </a>
-            </div>
-          </article>
-
-          <!-- FORMAT SURAT -->
-          <article class="media-card" id="media-surat">
-            <div class="media-image">
-              <div class="media-placeholder" aria-hidden="true">▤</div>
-            </div>
-
-            <div class="media-body">
-              <h3>Format Surat</h3>
-              <p>
-                Akses format surat yang disediakan untuk membantu
-                persiapan dokumen pengajuan pengangkatan anak.
-              </p>
-
-              <a
-                class="button button-primary"
-                href="format-surat-cota.pdf"
-                target="_blank"
-                rel="noopener"
-              >
-                Lihat Format Surat
-              </a>
-            </div>
-          </article>
-
-          <!-- MEDIA EDUKASI -->
-          <article class="media-card" id="media-edukasi">
-            <div class="media-image">
-              <img
-                src="ilustrasi-video-edukasi.png"
-                alt="Ilustrasi media edukasi pengangkatan anak"
-                loading="lazy"
-              >
-            </div>
-
-            <div class="media-body">
-              <h3>Media Edukasi</h3>
-              <p>
-                Akses leaflet dan video informatif mengenai persyaratan
-                serta prosedur pengangkatan anak.
-              </p>
-
-              <div class="media-buttons">
-                <a
-                  class="button button-secondary"
-                  href="leaflet-pengangkatan-anak.pdf"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  Lihat Leaflet
-                </a>
-
-                <a
-                  class="button button-primary"
-                  href="https://www.instagram.com/dinsos.ambon/"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  Tonton Video
-                </a>
-              </div>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section" id="faq">
-      <div class="container">
-
-        <div class="section-heading">
-          <span class="section-label">Tanya Jawab</span>
-          <h2>FAQ (Pertanyaan Umum)</h2>
-          <p>
-            Temukan jawaban atas beberapa pertanyaan yang sering diajukan
-            mengenai pengangkatan anak.
-          </p>
-        </div>
-
-        <div class="faq-list">
-
-          <details class="faq-item">
-            <summary>
-              Apakah pengangkatan anak langsung selesai setelah dokumen diajukan?
-            </summary>
-            <div class="faq-answer">
-              Tidak. Pengajuan dokumen merupakan salah satu bagian dari proses
-              pengangkatan anak. Setelah dokumen diajukan dan diperiksa, COTA
-              masih perlu mengikuti tahapan pengangkatan anak sesuai dengan
-              jenis dan prosedur yang berlaku.
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>Apa itu Sidang Tim PIPA?</summary>
-            <div class="faq-answer">
-              Tim PIPA (Tim Pertimbangan Perizinan Pengangkatan Anak) adalah
-              tim yang memberikan pertimbangan dalam proses pengangkatan anak.
-              Sidang Tim PIPA merupakan salah satu tahapan untuk membahas dan
-              memberikan pertimbangan terhadap pengajuan pengangkatan anak
-              sebelum proses dilanjutkan ke tahap berikutnya.
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>Berapa lama proses pengangkatan anak?</summary>
-            <div class="faq-answer">
-              Proses pengangkatan anak dari awal hingga akhir diperkirakan
-              memerlukan waktu sekitar 6–12 bulan atau lebih, bergantung pada
-              kelengkapan persyaratan, tahapan yang harus dilalui, serta jadwal
-              pelaksanaan Sidang Tim Pertimbangan Perizinan Pengangkatan Anak
-              (PIPA) di tingkat provinsi.
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>Apakah pengangkatan anak dikenakan biaya?</summary>
-            <div class="faq-answer">
-              Pelayanan pengangkatan anak tidak dipungut biaya (gratis).
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>Apa yang dilakukan setelah anak berada dalam pengasuhan?</summary>
-            <div class="faq-answer">
-              Setelah anak berada dalam pengasuhan, COTA perlu memberikan
-              pengasuhan dan perlindungan dengan mengutamakan kepentingan
-              terbaik bagi anak serta memenuhi kebutuhan anak sesuai dengan
-              kondisinya. Orang Tua Angkat juga berkewajiban melaporkan
-              perkembangan anak 1 tahun sekali sesuai dengan tahapan dan
-              ketentuan yang berlaku.
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>
-              Apakah Calon Anak Angkat (CAA) dapat ditambahkan nama atau marga dari orang tua angkat?
-            </summary>
-            <div class="faq-answer">
-              Pengangkatan anak tidak memutus hubungan darah dengan orang tua
-              kandung. Identitas dan asal-usul anak tetap harus dihormati dan
-              dicatat sesuai ketentuan yang berlaku. COTA tidak dapat langsung
-              menambahkan atau mengganti nama/marga anak menjadi marga orang
-              tua angkat. Pengangkatan anak dicatat berdasarkan penetapan
-              pengadilan melalui catatan pinggir pada akta kelahiran. Jika
-              terdapat kebutuhan perubahan nama, prosesnya mengikuti ketentuan
-              dan prosedur administrasi kependudukan yang berlaku.
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>
-              Apakah Nama Orang Tua Angkat Dapat Menggantikan Nama Orang Tua Kandung pada Akta Kelahiran Anak?
-            </summary>
-            <div class="faq-answer">
-              Tidak. Nama orang tua angkat tidak dapat menggantikan nama orang
-              tua kandung pada akta kelahiran. Pengangkatan anak harus melalui
-              penetapan pengadilan dan dicatat di Disdukcapil sesuai ketentuan
-              yang berlaku. Pengangkatan anak juga tidak memutuskan hubungan
-              darah dengan orang tua kandung.
-            </div>
-          </details>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- INFORMASI PELAYANAN -->
-    <section class="contact-section" id="informasi-pelayanan">
-      <div class="container">
-
-        <div class="contact-heading">
-          <span class="section-label">Hubungi Kami</span>
-          <h2>Informasi Pelayanan</h2>
-          <p>
-            Untuk memperoleh informasi lebih lanjut mengenai persyaratan
-            dan prosedur pengangkatan anak, silakan menghubungi Dinas Sosial
-            Kota Ambon melalui kontak berikut.
-          </p>
-        </div>
-
-        <div class="contact-grid">
-
-          <div class="contact-card">
-            <div class="contact-icon" aria-hidden="true">◷</div>
-            <div>
-              <h3>Jam Pelayanan</h3>
-              <p>Senin s/d Jum’at</p>
-              <p>08.00–16.30 WIT</p>
-            </div>
-          </div>
-
-          <div class="contact-card">
-            <div class="contact-icon" aria-hidden="true">⌖</div>
-            <div>
-              <h3>Alamat Kantor</h3>
-              <p>
-                Jl. Pemuda, Karang Panjang, Kel. Amantelu,
-                Kec. Sirimau, Kota Ambon.
-              </p>
-            </div>
-          </div>
-
-          <div class="contact-card">
-            <div class="contact-icon" aria-hidden="true">☎</div>
-            <div>
-              <h3>WhatsApp Pelayanan</h3>
-              <p>
-                <a
-                  id="whatsappLink"
-                  href="https://wa.me/6281248914591"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  0812-4891-4591
-                </a>
-              </p>
-              <p>Klik nomor untuk menghubungi petugas.</p>
-            </div>
-          </div>
-
-          <div class="contact-card">
-            <div class="contact-icon" aria-hidden="true">◎</div>
-            <div>
-              <h3>Media Sosial</h3>
-              <p>Ikuti informasi melalui media sosial Dinas Sosial Kota Ambon.</p>
-
-              <div class="social-links">
-                <a
-                  href="https://www.instagram.com/dinsos.ambon/"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  Instagram
-                </a>
-
-                <a
-                  href="https://www.tiktok.com/@dinsos.ambon"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  TikTok
-                </a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="contact-action">
-          <a
-            class="button"
-            id="whatsappButton"
-            href="https://wa.me/6281248914591"
-            target="_blank"
-            rel="noopener"
-          >
-            Hubungi melalui WhatsApp
-          </a>
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="container">
-      <p>
-        <strong>Dinas Sosial Kota Ambon</strong>
-        <br>
-        Media Informasi Prosedur Pengangkatan Anak bagi Calon Orang Tua Angkat
-      </p>
+  </div>
+</section>
+
+<!-- DASAR HUKUM -->
+<section class="section section-light" id="dasar-hukum">
+  <div class="container">
+
+    <div class="section-heading">
+      <span class="section-label">Landasan Peraturan</span>
+      <h2>Dasar Hukum Pengangkatan Anak</h2>
+      <p>Pelaksanaan pengangkatan anak mengacu pada peraturan perundang-undangan berikut.</p>
     </div>
-  </footer>
 
-  <script>
-    // MENU HAMBURGER
-    const menuToggle = document.getElementById("menuToggle");
-    const mainNav = document.getElementById("mainNav");
+    <div class="legal-list">
 
-    menuToggle.addEventListener("click", function () {
-      const isOpen = mainNav.classList.toggle("open");
+      <div class="legal-item">
+        <span class="legal-number">01</span>
+        <p>Undang-Undang Nomor 23 Tahun 2002 tentang Perlindungan Anak sebagaimana telah beberapa kali diubah, terakhir dengan Undang-Undang Nomor 17 Tahun 2016;</p>
+      </div>
 
-      menuToggle.setAttribute("aria-expanded", String(isOpen));
-      menuToggle.setAttribute(
-        "aria-label",
-        isOpen ? "Tutup menu navigasi" : "Buka menu navigasi"
-      );
-    });
+      <div class="legal-item">
+        <span class="legal-number">02</span>
+        <p>Peraturan Pemerintah Nomor 54 Tahun 2007 tentang Pelaksanaan Pengangkatan Anak;</p>
+      </div>
 
-    // Tutup menu setelah salah satu tautan dipilih
-    mainNav.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        mainNav.classList.remove("open");
-        menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.setAttribute("aria-label", "Buka menu navigasi");
-      });
-    });
+      <div class="legal-item">
+        <span class="legal-number">03</span>
+        <p>Peraturan Menteri Sosial Republik Indonesia Nomor 110/HUK/2009 tentang Persyaratan Pengangkatan Anak;</p>
+      </div>
 
-    // PESAN WHATSAPP OTOMATIS BERDASARKAN WAKTU AMBON (WIT)
-    function getGreeting() {
-      const now = new Date();
+      <div class="legal-item">
+        <span class="legal-number">04</span>
+        <p>Peraturan Menteri Sosial Republik Indonesia Nomor 37/HUK/2010 tentang Tim Pertimbangan Pengangkatan Anak;</p>
+      </div>
 
-      const timeInAmbon = new Date(
-        now.toLocaleString("en-US", {
-          timeZone: "Asia/Jayapura"
-        })
-      );
+      <div class="legal-item">
+        <span class="legal-number">05</span>
+        <p>Peraturan Menteri Sosial Republik Indonesia Nomor 3 Tahun 2018 tentang Bimbingan, Pengawasan, dan Pelaporan Pelaksanaan Pengangkatan Anak;</p>
+      </div>
 
-      const hour = timeInAmbon.getHours();
+      <div class="legal-item">
+        <span class="legal-number">06</span>
+        <p>Peraturan Direktur Jenderal Rehabilitasi Sosial Nomor 02 Tahun 2012 tentang Pedoman Teknis Prosedur Pengangkatan Anak.</p>
+      </div>
 
-      if (hour >= 5 && hour < 11) {
-        return "pagi";
-      }
+    </div>
+  </div>
+</section>
 
-      if (hour >= 11 && hour < 15) {
-        return "siang";
-      }
+<!-- MENGENAL PENGANGKATAN ANAK -->
+<section class="section" id="mengenal">
+  <div class="container">
 
-      if (hour >= 15 && hour < 19) {
-        return "sore";
-      }
+    <div class="section-heading">
+      <span class="section-label">Kenali Lebih Dekat</span>
+      <h2>Mengenal Pengangkatan Anak</h2>
+      <p>Pahami pengertian, tujuan, dan prinsip penting sebelum memulai proses pengangkatan anak.</p>
+    </div>
 
-      return "malam";
-    }
+    <div class="card-grid">
 
-    function updateWhatsAppLinks() {
-      const greeting = getGreeting();
+      <article class="info-card">
+        <div class="card-icon" aria-hidden="true">♡</div>
+        <h3>Pengertian Pengangkatan Anak</h3>
+        <p>Pengangkatan anak merupakan proses yang dilakukan sesuai dengan ketentuan yang berlaku untuk memberikan pengasuhan dan perlindungan kepada anak dalam lingkungan keluarga, dengan tetap mengutamakan kepentingan terbaik bagi anak. Dalam pelaksanaannya, pengangkatan anak dilakukan melalui persyaratan dan tahapan pelayanan yang perlu dipenuhi oleh Calon Orang Tua Angkat (COTA).</p>
+      </article>
 
-      const message =
-        "Selamat " + greeting +
-        ", saya ingin memperoleh informasi mengenai persyaratan dan prosedur " +
-        "pengangkatan anak di Dinas Sosial Kota Ambon. Terima kasih.";
+      <article class="info-card">
+        <div class="card-icon" aria-hidden="true">⌂</div>
+        <h3>Tujuan Pengangkatan Anak</h3>
+        <p>Pengangkatan anak merupakan upaya untuk memberikan pengasuhan, perlindungan, dan pemenuhan kebutuhan anak dalam lingkungan keluarga yang layak, dengan tetap mengutamakan kepentingan terbaik bagi anak.</p>
+      </article>
 
-      const whatsappURL =
-        "https://wa.me/6281248914591?text=" +
-        encodeURIComponent(message);
+      <article class="info-card">
+        <div class="card-icon" aria-hidden="true">✓</div>
+        <h3>Hal Penting bagi COTA</h3>
+        <p>COTA perlu memahami persyaratan, menyiapkan dokumen, mengikuti tahapan pelayanan, serta mengutamakan kepentingan terbaik, perlindungan, dan kesejahteraan anak. Pengajuan permohonan tidak berarti pengangkatan anak otomatis disetujui.</p>
+      </article>
 
-      document.getElementById("whatsappLink").href = whatsappURL;
-      document.getElementById("whatsappButton").href = whatsappURL;
-    }
+    </div>
+  </div>
+</section>
 
-    updateWhatsAppLinks();
-  </script>
+<!-- PERSYARATAN -->
+<section class="section section-light" id="persyaratan">
+  <div class="container">
+
+    <div class="section-heading">
+      <span class="section-label">Persiapan COTA</span>
+      <h2>Persyaratan Pengangkatan Anak</h2>
+      <p>Kenali persyaratan Calon Orang Tua Angkat dan Calon Anak Angkat sebelum mempersiapkan dokumen pengajuan.</p>
+    </div>
+
+    <div class="content-box">
+
+      <h3>01 — Persyaratan Calon Orang Tua Angkat (COTA)</h3>
+      <p>Calon Orang Tua Angkat (COTA) perlu memenuhi persyaratan berikut:</p>
+
+      <ol class="requirements-list">
+        <li>Sehat jasmani dan rohani.</li>
+        <li>Berumur paling rendah 30 tahun dan paling tinggi 55 tahun.</li>
+        <li>Beragama sama dengan agama Calon Anak Angkat (CAA).</li>
+        <li>Berkelakuan baik dan tidak pernah dihukum karena melakukan tindak kejahatan.</li>
+        <li>Berstatus menikah secara sah paling singkat 5 tahun.</li>
+        <li>Tidak merupakan pasangan sejenis.</li>
+        <li>Tidak atau belum mempunyai anak atau hanya memiliki 1 anak.</li>
+        <li>Dalam keadaan mampu secara ekonomi dan sosial.</li>
+        <li>Memperoleh persetujuan anak dan izin tertulis Orang Tua/Wali Anak.</li>
+        <li>Membuat surat pernyataan tertulis bahwa pengangkatan anak adalah demi kepentingan terbaik anak, kesejahteraan dan perlindungan anak.</li>
+        <li>Adanya laporan sosial dari Pekerja Sosial setempat.</li>
+        <li>Telah mengasuh Calon Anak Angkat paling singkat 6 bulan, sejak izin pengasuhan diberikan.</li>
+        <li>Memperoleh izin Menteri atau Kepala Instansi Sosial Provinsi.</li>
+      </ol>
+
+      <div class="requirements-actions">
+        <a class="button button-primary" href="ebook-panduan-cota.pdf" target="_blank" rel="noopener">Baca Persyaratan Lengkap di E-book →</a>
+      </div>
+
+      <hr class="content-divider">
+
+      <h3>02 — Persyaratan Calon Anak Angkat (CAA)</h3>
+      <p>Calon Anak Angkat (CAA) harus memenuhi persyaratan berikut:</p>
+
+      <ol class="requirements-list">
+        <li>Anak yang belum berusia 18 tahun.</li>
+        <li>Merupakan anak terlantar atau yang diterlantarkan.</li>
+        <li>Berada dalam asuhan keluarga atau lembaga pengasuh anak.</li>
+        <li>Memerlukan perlindungan khusus.</li>
+      </ol>
+
+      <hr class="content-divider">
+
+      <h3>03 — Dokumen yang Diperlukan</h3>
+      <p>Calon Orang Tua Angkat perlu menyiapkan dokumen persyaratan yang berkaitan dengan COTA dan Calon Anak Angkat (CAA) untuk mendukung proses pengajuan pengangkatan anak.</p>
+
+      <div class="requirements-actions">
+        <a class="button button-secondary" href="#media-dokumen">Lihat Checklist Dokumen &amp; Format Surat</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROSEDUR -->
+<section class="section" id="prosedur">
+  <div class="container">
+
+    <div class="section-heading">
+      <span class="section-label">Kategori Prosedur</span>
+      <h2>Prosedur Pengangkatan Anak</h2>
+      <p>Pilih kategori pengangkatan anak untuk mengakses panduan dan informasi prosedur yang sesuai.</p>
+    </div>
+
+    <div class="procedure-grid">
+
+      <article class="procedure-card">
+        <span class="procedure-number">01</span>
+        <h3>Pengangkatan Anak Antar-WNI</h3>
+        <p>Informasi mengenai prosedur pengangkatan anak antarwarga negara Indonesia.</p>
+        <a class="button button-primary" href="#media-ebook">Lihat Panduan Digital →</a>
+      </article>
+
+      <article class="procedure-card">
+        <span class="procedure-number">02</span>
+        <h3>Pengangkatan Anak WNA</h3>
+        <p>Informasi mengenai prosedur pengangkatan anak yang melibatkan warga negara asing.</p>
+        <a class="button button-primary" href="#media-ebook">Lihat Panduan Digital →</a>
+      </article>
+
+    </div>
+
+    <div class="notice" style="max-width:1000px;margin:22px auto 0">
+      <strong>Informasi:</strong> Untuk melihat uraian dan alur prosedur yang lebih lengkap, silakan membaca e-book panduan. Rincian prosedur perlu disesuaikan dengan kategori pengangkatan anak dan ketentuan yang berlaku.
+    </div>
+
+  </div>
+</section>
+
+<!-- MEDIA DIGITAL: TEPAT TIGA KARTU -->
+<section class="section section-light" id="media-digital">
+  <div class="container">
+
+    <div class="section-heading">
+      <span class="section-label">Akses Informasi</span>
+      <h2>Media Informasi Digital</h2>
+      <p>Akses panduan dan media informasi untuk membantu memahami persyaratan serta prosedur pengangkatan anak bagi COTA.</p>
+    </div>
+
+    <div class="media-grid">
+
+      <article class="media-card" id="media-ebook">
+        <div class="media-image">
+          <img src="ilustrasi-ebook.png" alt="Ilustrasi e-book panduan pengangkatan anak" loading="lazy">
+        </div>
+        <div class="media-body">
+          <h3>E-book Panduan COTA</h3>
+          <p>Panduan persyaratan, dokumen, dan informasi prosedur pengangkatan anak bagi Calon Orang Tua Angkat.</p>
+          <a class="button button-primary" href="ebook-panduan-cota.pdf" target="_blank" rel="noopener">Baca E-book</a>
+        </div>
+      </article>
+
+      <article class="media-card" id="media-dokumen">
+        <div class="media-image">
+          <img src="ilustrasi-checklist.png" alt="Ilustrasi checklist dokumen dan format surat COTA" loading="lazy">
+        </div>
+        <div class="media-body">
+          <h3>Checklist Dokumen &amp; Format Surat</h3>
+          <p>Satu file gabungan berisi checklist kelengkapan dokumen dan format surat untuk membantu persiapan COTA.</p>
+          <a class="button button-primary" href="dokumen-cota.pdf" target="_blank" rel="noopener">Lihat Dokumen</a>
+        </div>
+      </article>
+
+      <article class="media-card" id="media-edukasi">
+        <div class="media-image">
+          <img src="ilustrasi-video-edukasi.png" alt="Ilustrasi media edukasi pengangkatan anak" loading="lazy">
+        </div>
+        <div class="media-body">
+          <h3>Media Edukasi</h3>
+          <p>Akses leaflet dan video informatif mengenai persyaratan serta prosedur pengangkatan anak.</p>
+          <div class="media-buttons">
+            <a class="button button-secondary" href="leaflet-pengangkatan-anak.pdf" target="_blank" rel="noopener">Lihat Leaflet</a>
+            <a class="button button-primary" href="https://www.instagram.com/dinsos.ambon/" target="_blank" rel="noopener">Tonton Video</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="container">
+
+    <div class="section-heading">
+      <span class="section-label">Tanya Jawab</span>
+      <h2>FAQ (Pertanyaan Umum)</h2>
+      <p>Temukan jawaban atas beberapa pertanyaan yang sering diajukan mengenai pengangkatan anak.</p>
+    </div>
+
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary>Apakah pengangkatan anak langsung selesai setelah dokumen diajukan?</summary>
+        <div class="faq-answer">Tidak. Pengajuan dokumen merupakan salah satu bagian dari proses pengangkatan anak. Setelah dokumen diajukan dan diperiksa, COTA masih perlu mengikuti tahapan pengangkatan anak sesuai dengan jenis dan prosedur yang berlaku.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Apa itu Sidang Tim PIPA?</summary>
+        <div class="faq-answer">Tim PIPA (Tim Pertimbangan Perizinan Pengangkatan Anak) adalah tim yang memberikan pertimbangan dalam proses pengangkatan anak. Sidang Tim PIPA merupakan salah satu tahapan untuk membahas dan memberikan pertimbangan terhadap pengajuan pengangkatan anak sebelum proses dilanjutkan ke tahap berikutnya.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Berapa lama proses pengangkatan anak?</summary>
+        <div class="faq-answer">Proses pengangkatan anak dari awal hingga akhir diperkirakan memerlukan waktu sekitar 6–12 bulan atau lebih, bergantung pada kelengkapan persyaratan, tahapan yang harus dilalui, serta jadwal pelaksanaan Sidang Tim Pertimbangan Perizinan Pengangkatan Anak (PIPA) di tingkat provinsi.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Apakah pengangkatan anak dikenakan biaya?</summary>
+        <div class="faq-answer">Pelayanan pengangkatan anak tidak dipungut biaya (gratis).</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Apa yang dilakukan setelah anak berada dalam pengasuhan?</summary>
+        <div class="faq-answer">Setelah anak berada dalam pengasuhan, COTA perlu memberikan pengasuhan dan perlindungan dengan mengutamakan kepentingan terbaik bagi anak serta memenuhi kebutuhan anak sesuai dengan kondisinya. Orang Tua Angkat juga berkewajiban melaporkan perkembangan anak 1 tahun sekali sesuai dengan tahapan dan ketentuan yang berlaku.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Apakah Calon Anak Angkat (CAA) dapat ditambahkan nama atau marga dari orang tua angkat?</summary>
+        <div class="faq-answer">Pengangkatan anak tidak memutus hubungan darah dengan orang tua kandung. Identitas dan asal-usul anak tetap harus dihormati dan dicatat sesuai ketentuan yang berlaku. COTA tidak dapat langsung menambahkan atau mengganti nama/marga anak menjadi marga orang tua angkat. Pengangkatan anak dicatat berdasarkan penetapan pengadilan melalui catatan pinggir pada akta kelahiran. Jika terdapat kebutuhan perubahan nama, prosesnya mengikuti ketentuan dan prosedur administrasi kependudukan yang berlaku.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Apakah Nama Orang Tua Angkat Dapat Menggantikan Nama Orang Tua Kandung pada Akta Kelahiran Anak?</summary>
+        <div class="faq-answer">Tidak. Nama orang tua angkat tidak dapat menggantikan nama orang tua kandung pada akta kelahiran. Pengangkatan anak harus melalui penetapan pengadilan dan dicatat di Disdukcapil sesuai ketentuan yang berlaku. Pengangkatan anak juga tidak memutuskan hubungan darah dengan orang tua kandung.</div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- INFORMASI PELAYANAN -->
+<section class="contact-section" id="informasi-pelayanan">
+  <div class="container">
+
+    <div class="contact-heading">
+      <span class="section-label">Hubungi Kami</span>
+      <h2>Informasi Pelayanan</h2>
+      <p>Untuk memperoleh informasi lebih lanjut mengenai persyaratan dan prosedur pengangkatan anak, silakan menghubungi Dinas Sosial Kota Ambon melalui kontak berikut.</p>
+    </div>
+
+    <div class="contact-grid">
+
+      <div class="contact-card">
+        <div class="contact-icon" aria-hidden="true">◷</div>
+        <div>
+          <h3>Jam Pelayanan</h3>
+          <p>Senin s/d Jum’at</p>
+          <p>08.00–16.30 WIT</p>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon" aria-hidden="true">⌖</div>
+        <div>
+          <h3>Alamat Kantor</h3>
+          <p>Jl. Pemuda, Karang Panjang, Kel. Amantelu, Kec. Sirimau, Kota Ambon.</p>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon" aria-hidden="true">☎</div>
+        <div>
+          <h3>WhatsApp Pelayanan</h3>
+          <p><a id="whatsappLink" href="https://wa.me/6281248914591" target="_blank" rel="noopener">0812-4891-4591</a></p>
+          <p>Klik nomor untuk menghubungi petugas.</p>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon" aria-hidden="true">◎</div>
+        <div>
+          <h3>Media Sosial</h3>
+          <p>Ikuti informasi melalui media sosial Dinas Sosial Kota Ambon.</p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/dinsos.ambon/" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://www.tiktok.com/@dinsos.ambon" target="_blank" rel="noopener">TikTok</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="contact-action">
+      <a class="button" id="whatsappButton" href="https://wa.me/6281248914591" target="_blank" rel="noopener">Hubungi melalui WhatsApp</a>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>
+      <strong>Dinas Sosial Kota Ambon</strong><br>
+      Media Informasi Prosedur Pengangkatan Anak bagi Calon Orang Tua Angkat
+    </p>
+  </div>
+</footer>
+
+<script>
+const menuToggle = document.getElementById("menuToggle");
+const mainNav = document.getElementById("mainNav");
+
+menuToggle.addEventListener("click", () => {
+  const isOpen = mainNav.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+  menuToggle.setAttribute(
+    "aria-label",
+    isOpen ? "Tutup menu navigasi" : "Buka menu navigasi"
+  );
+});
+
+mainNav.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    mainNav.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Buka menu navigasi");
+  });
+});
+
+function getGreeting() {
+  const now = new Date(
+    new Date().toLocaleString("en-US", {
+      timeZone: "Asia/Jayapura"
+    })
+  );
+
+  const hour = now.getHours();
+
+  if (hour >= 5 && hour < 11) return "pagi";
+  if (hour >= 11 && hour < 15) return "siang";
+  if (hour >= 15 && hour < 19) return "sore";
+
+  return "malam";
+}
+
+function updateWhatsAppLinks() {
+  const message =
+    "Selamat " + getGreeting() +
+    ", saya ingin memperoleh informasi mengenai persyaratan dan prosedur pengangkatan anak di Dinas Sosial Kota Ambon. Terima kasih.";
+
+  const url =
+    "https://wa.me/6281248914591?text=" +
+    encodeURIComponent(message);
+
+  document.getElementById("whatsappLink").href = url;
+  document.getElementById("whatsappButton").href = url;
+}
+
+updateWhatsAppLinks();
+</script>
 
 </body>
 </html>
