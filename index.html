@@ -1512,6 +1512,70 @@ body {
     min-height: 96px;
     padding: 14px;
   }
+}/* =====================================
+   PENYEDERHANAAN HIASAN LATAR BELAKANG
+   ===================================== */
+
+/* Latar belakang area banner */
+.hero {
+    background: #fffdf8 !important;
+    position: relative;
+}
+
+/* Hilangkan ornamen lengkung yang terlalu ramai */
+.hero::before,
+.hero::after {
+    content: none !important;
+    display: none !important;
+}
+
+/* Banner tetap utuh dan proporsional */
+.hero-banner {
+    position: relative;
+    z-index: 1;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+/* Area tombol tetap rapi */
+.hero-actions {
+    position: relative;
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    padding-top: 22px;
+    padding-bottom: 28px;
+}
+
+/* Latar Menu Informasi tetap lembut */
+.menu-section {
+    position: relative;
+    background: linear-gradient(
+        135deg,
+        #f5f9fd 0%,
+        #e8f2fa 50%,
+        #f9fbfd 100%
+    );
+}
+
+/* Hilangkan ornamen tambahan yang berlebihan */
+.menu-section::before,
+.menu-section::after {
+    display: none !important;
+}
+
+/* Penyesuaian layar HP */
+@media (max-width: 760px) {
+    .hero-banner {
+        border-radius: 14px;
+    }
+
+    .hero-actions {
+        gap: 10px;
+        padding-top: 18px;
+        padding-bottom: 22px;
+    }
 }
 </style>
 </head>
