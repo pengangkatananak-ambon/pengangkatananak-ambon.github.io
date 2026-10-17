@@ -1222,6 +1222,165 @@ button {
   *:after {
     transition-duration: .01ms !important;
   }
+}/* =========================================
+   PENYEMPURNAAN TAMPILAN WEBSITE
+   LAYAR TABLET DAN DESKTOP
+   ========================================= */
+
+/* Gunakan lebar layar secara konsisten */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  overflow-x: clip;
+}
+
+/* Header tetap rapi dan menggunakan lebar layar */
+.site-header {
+  width: 100%;
+}
+
+.header-inner {
+  width: 100%;
+}
+
+/* Banner lebih lebar dan proporsional */
+.hero {
+  width: 100%;
+  padding-top: 12px;
+  padding-bottom: 0;
+}
+
+.hero .container {
+  width: 100%;
+  max-width: 1600px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.hero-banner {
+  width: 100%;
+  max-width: none;
+  margin: 0 auto;
+  border-radius: 16px;
+}
+
+.hero-banner img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Tombol tetap berada di tengah */
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 16px 0 0;
+}
+
+/* Menu informasi menyambung lebih dekat dengan banner */
+.menu-section {
+  width: 100%;
+  margin-top: 0;
+  padding-top: 34px;
+  background:
+    radial-gradient(
+      ellipse at 100% 10%,
+      rgba(228, 239, 249, .95),
+      transparent 48%
+    ),
+    linear-gradient(
+      180deg,
+      #f7fbff 0%,
+      #eff6fc 100%
+    );
+}
+
+/* Gelombang lembut sebagai dekorasi */
+.menu-section:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -5%;
+  width: 110%;
+  height: 65px;
+  background: rgba(228, 239, 249, .65);
+  border-radius: 0 0 50% 20%;
+  transform: rotate(-1deg);
+  pointer-events: none;
+}
+
+/* Lebar konten bagian lain tetap konsisten */
+.section > .container,
+.contact-section > .container,
+.site-footer > .container,
+.menu-section > .container {
+  width: 100%;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Tablet */
+@media (min-width: 761px) and (max-width: 1100px) {
+  .hero .container {
+    max-width: none;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .hero-banner {
+    border-radius: 14px;
+  }
+
+  .hero-actions {
+    padding-top: 14px;
+    padding-bottom: 0;
+  }
+
+  .menu-section {
+    padding-top: 30px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1101px) {
+  .hero .container {
+    max-width: 1600px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+/* HP */
+@media (max-width: 760px) {
+  .hero .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .hero-banner {
+    border-radius: 12px;
+  }
+
+  .hero-actions {
+    padding-top: 14px;
+    gap: 10px;
+  }
+
+  .hero-actions .button {
+    width: auto;
+  }
+
+  .menu-section {
+    padding-top: 28px;
+  }
 }
 </style>
 </head>
