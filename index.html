@@ -1576,6 +1576,93 @@ body {
         padding-top: 18px;
         padding-bottom: 22px;
     }
+}/* LINGKARAN PASTEL UNTUK 7 MENU */
+
+.menu-illustration {
+  width: 76px;
+  height: 76px;
+  min-width: 76px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: #E3F1FC;
+  transition: transform 0.25s ease;
+}
+
+.menu-illustration svg {
+  width: 38px;
+  height: 38px;
+  display: block;
+}
+
+/* 1. Dasar Hukum — biru muda */
+.illustration-hukum {
+  background: #E3F1FC !important;
+}
+
+/* 2. Mengenal Pengangkatan Anak — kuning */
+.illustration-keluarga {
+  background: #FFF3CC !important;
+}
+
+/* 3. Persyaratan — kuning */
+.illustration-persyaratan {
+  background: #FFF3CC !important;
+}
+
+/* 4. Prosedur — biru muda */
+.illustration-prosedur {
+  background: #E3F1FC !important;
+}
+
+/* 5. Media Informasi Digital — biru muda */
+.illustration-media {
+  background: #E3F1FC !important;
+}
+
+/* 6. FAQ — kuning */
+.illustration-faq {
+  background: #FFF3CC !important;
+}
+
+/* 7. Informasi Pelayanan — kuning */
+.illustration-pelayanan {
+  background: #FFF3CC !important;
+}
+
+/* Efek hover */
+.menu-card:hover .menu-illustration {
+  transform: scale(1.04);
+}
+
+/* Tablet */
+@media (min-width: 761px) and (max-width: 1100px) {
+  .menu-illustration {
+    width: 68px;
+    height: 68px;
+    min-width: 68px;
+  }
+
+  .menu-illustration svg {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+/* HP */
+@media (max-width: 760px) {
+  .menu-illustration {
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+  }
+
+  .menu-illustration svg {
+    width: 30px;
+    height: 30px;
+  }
 }
 </style>
 </head>
