@@ -441,16 +441,75 @@ button {
 }
 
 .menu-illustration {
-  width: 56px;
-  height: 56px;
+  width: 76px;
+  height: 76px;
+  min-width: 76px;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 16px;
-  background: var(--blue-light);
+  flex-shrink: 0;
+  background: #E3F1FC;
   color: var(--navy);
-  font-size: 1.7rem;
-  font-weight: 800;
+  transition: transform 0.25s ease;
+}
+
+.menu-illustration svg {
+  width: 38px;
+  height: 38px;
+  display: block;
+}
+
+/* Dasar Hukum — biru muda */
+.illustration-hukum {
+  background: #E3F1FC !important;
+}
+
+/* Mengenal Pengangkatan Anak — kuning */
+.illustration-keluarga {
+  background: #FFF3CC !important;
+}
+
+/* Persyaratan — kuning */
+.illustration-persyaratan {
+  background: #FFF3CC !important;
+}
+
+/* Prosedur — biru muda */
+.illustration-prosedur {
+  background: #E3F1FC !important;
+}
+
+/* Media Informasi Digital — biru muda */
+.illustration-media {
+  background: #E3F1FC !important;
+}
+
+/* FAQ — kuning */
+.illustration-faq {
+  background: #FFF3CC !important;
+}
+
+/* Informasi Pelayanan — kuning */
+.illustration-pelayanan {
+  background: #FFF3CC !important;
+}
+
+.menu-card:hover .menu-illustration {
+  transform: scale(1.04);
+}
+
+@media (max-width: 760px) {
+  .menu-illustration {
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+  }
+
+  .menu-illustration svg {
+    width: 30px;
+    height: 30px;
+  }
 }
 
 .illustration-hukum,
