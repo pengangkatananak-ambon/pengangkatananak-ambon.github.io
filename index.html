@@ -1872,6 +1872,68 @@ a.menu-card .menu-icon svg {
     width: 28px !important;
     height: 28px !important;
   }
+}/* LATAR BELAKANG MENU — BIRU, KREM, DAN EMAS */
+.menu-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: linear-gradient(
+    145deg,
+    #F5F9FD 0%,
+    #E8F2FB 48%,
+    #FFF9ED 100%
+  ) !important;
+}
+
+/* Gelombang dekoratif yang lembut */
+.menu-section::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -100px;
+  left: -8%;
+  width: 116%;
+  height: 260px;
+  background: rgba(255, 255, 255, 0.58);
+  border-radius: 0 0 50% 50%;
+  transform: rotate(-2deg);
+  pointer-events: none;
+}
+
+/* Lengkungan emas tipis di bagian bawah */
+.menu-section::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: -100px;
+  bottom: -150px;
+  width: 360px;
+  height: 300px;
+  border: 2px solid rgba(217, 178, 75, 0.22);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Kartu tetap putih dan bersih */
+.menu-section .menu-card {
+  background: #FFFFFF;
+  position: relative;
+  z-index: 1;
+}
+
+/* Tampilan ponsel */
+@media (max-width: 760px) {
+  .menu-section::before {
+    top: -70px;
+    height: 190px;
+  }
+
+  .menu-section::after {
+    width: 240px;
+    height: 220px;
+    right: -120px;
+    bottom: -110px;
+  }
 }
 </style>
 </head>
