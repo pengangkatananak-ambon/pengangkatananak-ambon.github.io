@@ -2011,6 +2011,46 @@ html {
     html {
         scroll-behavior: auto;
     }
+}/* =====================================
+   BACKGROUND MINIMALIS ELEGAN
+   Dinas Sosial Kota Ambon
+   ===================================== */
+
+/* Warna dasar halaman */
+body {
+    background-color: #ffffff;
+}
+
+/* Latar belakang menu informasi */
+#menu-informasi {
+    background: linear-gradient(
+        180deg,
+        #edf5fc 0%,
+        #f5f9fd 100%
+    );
+}
+
+/* Kartu menu tetap putih */
+.menu-card {
+    background-color: #ffffff;
+    border: 1px solid rgba(25, 48, 84, 0.07);
+    box-shadow: 0 4px 18px rgba(25, 48, 84, 0.06);
+}
+
+/* Efek lembut saat kartu disentuh */
+.menu-card:hover {
+    box-shadow: 0 8px 22px rgba(25, 48, 84, 0.10);
+}
+
+/* Menghormati pengaturan pengurangan animasi */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .menu-card {
+        transition: none;
+    }
 }
 </style>
 </head>
